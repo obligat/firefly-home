@@ -1,8 +1,8 @@
 /**
  * Created by zhangsha on 16-8-16.
  */
-import {checkUsername} from '../public/src/register';
-import {checkPassword} from '../public/src/register';
+import {checkUsername} from '../public/src/register/register';
+import {checkPassword} from '../public/src/register/register';
 
 fdescribe('checkUsername', () => {
     it('should return correct username', () => {
