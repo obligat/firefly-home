@@ -1,16 +1,18 @@
 import mongoose from 'mongoose';
 import rawData from './fixture/raw-data';
-import Todo from '../models/Todo';
-import Person from '../models/Person';
+
+// import your models from ../models
+import Todo from  '../models/Todo';
 
 const modelsMap = {
-  Todo,
-  Person
+  // put models here
+  Todo
 };
 
 let docs = Object.keys(rawData);
 
-mongoose.connect('mongodb://localhost/todos');
+const database = 'test'; // modify 'test' to be your database name
+mongoose.connect(`mongodb://localhost/${database}`);
 
 
 Object.keys(rawData)
