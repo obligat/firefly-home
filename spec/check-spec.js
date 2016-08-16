@@ -4,7 +4,7 @@
 import {checkUsername} from '../public/src/register';
 import {checkPassword} from '../public/src/register';
 
-fdescribe('checkUsername', () => {
+describe('checkUsername', () => {
     it('should return correct username1', () => {
         let userName = '1234_zhangsha';
         let result = checkUsername(userName);
@@ -30,7 +30,7 @@ fdescribe('checkUsername', () => {
     });
 });
 
-describe('checkPassword', () => {
+fdescribe('checkPassword', () => {
     it('should show error message with password', () => {
         let password = '1123#45';
         let result = checkPassword(password);
@@ -48,14 +48,14 @@ describe('isEqual', () => {
     it('should return boolean with isEqual?', () => {
         let password = '123456';
         let confirmPassword = '123456';
-        let result = checkPassword(password, confirmPassword);
+        let result = isEqual(password, confirmPassword);
         expect(result).toEqual(true);
     });
 
     it('should return boolean with isEqual?', () => {
         let password = '12346';
         let confirmPassword = '123456';
-        let result = checkPassword(password, confirmPassword);
+        let result = isEqual(password, confirmPassword);
         expect(result).toEqual(false);
     });
 });
