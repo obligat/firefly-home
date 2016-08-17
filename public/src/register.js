@@ -2,46 +2,53 @@
  * Created by zhangsha on 16-8-16.
  */
 function checkUsername(username) {
-    let pattern = /^(\w){6,16}$/;
-    let pattern2 = /^[A-Za-z0-9]+$/;
+  let lengthPattern = /^(\w){6,16}$/;
+  let otherPattern = /^[A-Za-z0-9_|0-9A-Za-z_]+$/;
 
-    let resultOther = pattern2.test(username);
-    let resultLength = pattern.test(username);
-
-    if (!resultOther) {
-        return {
-            err: '用户名由数字、字母、下划线组成',
-            data: ''
-        }
-    } else if (!resultLength) {
-        return {
-            err: '用户名长度不能少于6位',
-            data: ''
-        }
-    }else{
-        return {
-            err:'',
-            data:username
-        }
-    }
-/*    return pattern.test(username) ? {
-        err: '',
-        data: username
-    } : {
-        err: '用户名由数字、字母、下划线组成',
-        data: ''
-    }*/
-}
+  let isLeagalLength = lengthPattern.test(username);
+  let isContainsOthers = otherPattern.test(username);
 
 
-function checkPassword() {
+  if (!isContainsOthers) {
     return {
-        err: '',
-        data: ''
+      err: '用户名由数字、字母、下划线组成',
+      data: ''
     }
+  } else if (!isLeagalLength) {
+    return {
+      err: '用户名长度不能少于6位且不大于16位',
+      data: ''
+    }
+  }
+
+  return {
+    err: '',
+    data: username
+  };
 }
 
+
+function checkPassword(password) {
+  let lengthPattern = password.length;
+
+  return lengthPattern >= 6 ? {
+    err: '',
+    data: password
+  } : {
+    err: '密码长度不能少于6位',
+    data: ''
+  }
+}
+
+function isEqual(password, confirmPass) {
+  if (password === confirmPass) {
+    return '';
+  }
+
+  return '两次输入密码不一致';
+}
 module.exports = {
-    checkUsername,
-    checkPassword
+  checkUsername,
+  checkPassword,
+  isEqual
 };
