@@ -21,7 +21,12 @@
     "body-parser": "^1.15.2",
     "bootstrap": "^3.3.7",
     "express": "^4.14.0",
+<<<<<<< HEAD
     "mongoose": "^4.5.8",
+=======
+    "font-awesome": "^4.6.3",
+    "mongoose": "^4.5.9",
+>>>>>>> dev
     "react": "^15.3.0",
     "react-dom": "^15.3.0",
     "react-redux": "^4.4.5",
