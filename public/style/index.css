@@ -6,6 +6,7 @@
 }
 
 .right{
+    width: 400px;
     float: right;
 }
 
@@ -15,11 +16,8 @@
 
 .issue-room {
     background-color: lightseagreen;
-    width: 105px;
-    height: 40px;
     line-height: 40px;
     text-align: center;
-    margin: auto;
 }
 
 .title-span{
@@ -52,4 +50,11 @@ a{
 
 .body-right{
     float: right;
+}
+
+li{
+    float: left;
+    list-style-type: none;
+    width: 100px;
+    text-align: center;
 }
