@@ -1,0 +1,21 @@
+#all{
+    margin: 15% 30%;
+    border: 1px solid #4cae4c;
+    text-align: center;
+    height: 50%;
+    color: #398439;
+}
+
+#nameDiv,#passwordDiv{
+    margin: 0 auto;
+}
+#login{
+    margin-left: 10px;
+}
+#cancel{
+    margin-left: 10px;
+}
+
+a{
+    margin-left: 350px;
+}

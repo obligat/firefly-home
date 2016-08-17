@@ -1,14 +1,20 @@
-/**
- * Created by afaren on 8/16/16.
- */
+import express from "express";
+import User from "../models/User";
 
-import express from 'express';
+let router = express.Router();
 
+router.get('/', (req, res)=> {
+  console.log('request came ' + JSON.stringify(req.query.name));
+  User.where({name: req.query.name}).findOne((err, user)=> {
+    if(err)
+      throw err;
 
-const router = express.Router();
-
-router.get('/', (req, res) => {
-  res.send('here is user');
+    const exist = user ? true: false;
+    
+    console.log('send ' + JSON.stringify({exist:exist}));
+    
+    res.send({exist:exist});
+  });
 });
 
 module.exports = router;

@@ -1,9 +1,15 @@
 export default {
-  Todo: [{
-    text: 'test1'
-  }, {
-    text: 'test3'
-  }, {
-    text: 'test4'
-  }]
+  User: [{
+      name: 'zhangsan',
+      password: '12345'
+    }, {
+      name: 'lisi',
+      password: '12345'
+    }, {
+      name: 'wangwu',
+      password: '12345'
+    }, {
+      name: 'haha',
+      password: '12345'
+    }]
 };
