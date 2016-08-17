@@ -28,9 +28,14 @@ function checkUsername(username) {
 }
 
 
-function checkPassword() {
-  return {
+function checkPassword(password) {
+  let lengthPattern = password.length;
+
+  return lengthPattern >= 6 ? {
     err: '',
+    data: password
+  } : {
+    err: '密码长度不能少于6位',
     data: ''
   }
 }
