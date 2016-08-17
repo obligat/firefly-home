@@ -1,5 +1,6 @@
 import React, {Component} from "react";
-import {isExistName} from "../actions/index";
+import {isExistName} from "../actions/login";
+import {isExistPassword} from "../actions/login";
 import {connect} from "react-redux";
 
 class LoginComponent extends Component {
@@ -11,7 +12,7 @@ class LoginComponent extends Component {
   handleOnBlur() {
     let userName = this.refs.name.value;
     this.props.checkUsername(userName);
-    console.log(this.props.isExist);
+    //console.log(this.props.isExist);
   }
 
   handlerClick() {
@@ -24,7 +25,7 @@ class LoginComponent extends Component {
 
   render() {
 
-    const {isExist} = this.props;
+    const {isExist,isCorrectPassword} = this.props;
     return (
       <div id="all" className="panel panel-default">
 
@@ -49,7 +50,7 @@ class LoginComponent extends Component {
 
             <div>
               {
-                isExist ? ('') : (<h1>no exist</h1>)
+                isExist ? ('') : (<span id="errName">用户未注册</span>)
               }
             </div>
             <br/>
@@ -63,20 +64,20 @@ class LoginComponent extends Component {
                 ref="psw"
                 placeholder="密码"/>
             </div>
-            <div>
-              <span id="errPsw"/>
-            </div>
+            <div>{
+              isCorrectPassword ? ('') : (<span id="errPsw">密码错误</span>)
+            }</div>
             <br/>
 
             <button id="login"
                     type="button"
-                    className="btn btn-success">
+                    className="btn btn-success"
+                    onClick={this.handlerClick.bind(this)}>
               登录
             </button>
             <button id="cancel"
                     type="button"
-                    className="btn btn-success"
-                    onClick={this.handlerClick.bind(this)}>
+                    className="btn btn-success">
               取消
             </button>
           </form>
@@ -93,7 +94,8 @@ class LoginComponent extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    isExist: state.isExist
+    isExist: state.isExist,
+    isCorrectPassword: state.isCorrectPassword
   }
 };
 
