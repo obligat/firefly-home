@@ -1,26 +1,27 @@
 import express from 'express';
+import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
 import regRouters from './server/routers';
+import dbUrl from './db-config';
 
 const app = express();
+
+mongoose.connect(dbUrl);
 
 app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
   extended: true
 }));
 
-app.use(express.static(__dirname + 'public'));
+app.use(express.static(__dirname + '/public'));
 
 
 regRouters(app);
 
 
 app.get('/', (req, res) => {
-  console.log('request came');
+  console.log('request came in homepage');
   res.send('Welcome, this is firefly-home');
 });
-
-
-
 
 
 app.listen(3000, ()=> {

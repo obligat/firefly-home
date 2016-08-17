@@ -7,7 +7,8 @@ module.exports = {
       "./node_modules/bootstrap/dist/css/bootstrap.css",
       "./node_modules/font-awesome/css/font-awesome.min.css"
     ],
-    index: ["./public/src/index", "./public/style/index.css"]
+    index: ["./public/src/index", "./public/style/index.css"],
+    login: ["./public/src/login", "./public/style/login.css"]
   },
   output: {
     path: require('path').resolve("./public/dist"),

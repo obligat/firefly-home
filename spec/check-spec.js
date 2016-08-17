@@ -5,7 +5,7 @@ import {
         checkUsername,
         checkPassword,
         isEqual
-} from '../public/src/register';
+} from '../server/core/register';
 //import {checkPassword} from '../public/src/register';
 
 describe('checkUsername', () => {
