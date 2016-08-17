@@ -1,3 +1,4 @@
+
 import React from 'react'; // eslint-disable-line no-unused-vars
 import {render} from 'react-dom';
 import rootReducer from './reducers';
@@ -17,4 +18,5 @@ render(
     <App/>
   </Provider>,
   document.getElementById('homepage')
+
 );

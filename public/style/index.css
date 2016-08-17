@@ -1,0 +1,60 @@
+
+.header{
+    height: 55px;
+    background-color: #e7c3c3;
+    line-height: 55px;
+}
+
+.right{
+    width: 400px;
+    float: right;
+}
+
+.left{
+    float: left;
+}
+
+.issue-room {
+    background-color: lightseagreen;
+    line-height: 40px;
+    text-align: center;
+}
+
+.title-span{
+    font-size: 24px;
+}
+
+a:hover{
+    text-decoration: none;
+}
+
+a{
+    text-decoration: none;
+}
+
+.room1-picture{
+    width: 660px;
+    height: 435px;
+}
+
+
+.preview{
+    height: 200px;
+    width:720px;
+}
+.room{
+    width: 110px;
+    height: 90px;
+    cursor: pointer;
+}
+
+.body-right{
+    float: right;
+}
+
+li{
+    float: left;
+    list-style-type: none;
+    width: 100px;
+    text-align: center;
+}

@@ -23,8 +23,6 @@ export const userExist = (exist)=> {
 
 export const isExistPassword = (userName, password)=>{
   return (dispatch)=>{
-    console.log(userName);
-    console.log(password);
 
     superAgent
       .get('/users/validation')
@@ -44,4 +42,4 @@ export const passwordExist = (exist)=>{
     type:'PASSWORD_CORRECT',
     exist
   }
-}
+};

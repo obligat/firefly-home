@@ -12,7 +12,6 @@ class LoginComponent extends Component {
   handleOnBlur() {
     let userName = this.refs.name.value;
     this.props.checkUsername(userName);
-    //console.log(this.props.isExist);
   }
 
   handlerClick() {

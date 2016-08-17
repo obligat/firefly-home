@@ -6,35 +6,37 @@ let router = express.Router();
 router.get('/', (req, res)=> {
   console.log('request came ' + JSON.stringify(req.query.name));
   User.where({name: req.query.name}).findOne((err, user)=> {
-    if(err)
+    if (err)
       throw err;
 
-    const exist = user ? true: false;
-    
-    console.log('send ' + JSON.stringify({exist:exist}));
-    
-    res.send({exist:exist});
+    const exist = user ? true : false;
+
+    console.log('send ' + JSON.stringify({exist: exist}));
+
+    res.send({exist: exist});
   });
 });
 
 router.get('/validation', (req, res)=> {
-  console.log('request came ' + JSON.stringify(req.query.userName));
-  console.log(req.query.password);
+  console.log('request came ' + JSON.stringify(req.query.userName) +
+    JSON.stringify(req.query.password));
 
   User.where({name: req.query.userName}).findOne((err, user)=> {
-    if(err)
+    if (err)
       throw err;
-    if (user.password === req.query.password) {
-      res.send({exist:true});
-    } else {
-      res.send({exist:false});
-    }
+    console.log('lksdjflkjskldjflksjlkdfjlksdjflkj');
 
-    /* const exist = user ? true: false;
-    console.log('send ' + JSON.stringify({exist:exist}));
+    console.log('here is user: ' + JSON.stringify(user));
 
     
-    res.send({exist:exist});*/
+
+
+    if (user.password === req.query.password) {
+      res.send({exist: true});
+    } else {
+      res.send({exist: false});
+    }
+
   });
 });
 
