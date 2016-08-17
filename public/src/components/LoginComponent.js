@@ -50,9 +50,9 @@ class LoginComponent extends Component {
             <div>
               {
                 isExist ? ('') : (<span id="errName">用户未注册</span>)
-              }
+              }<br/>
             </div>
-            <br/>
+            
             
             <div id="passwordDiv" className="col-xs-5 input-group">
               <span className="input-group-addon glyphicon glyphicon-lock"/>
@@ -65,8 +65,9 @@ class LoginComponent extends Component {
             </div>
             <div>{
               isCorrectPassword ? ('') : (<span id="errPsw">密码错误</span>)
-            }</div>
-            <br/>
+            }<br/>
+            </div>
+            
 
             <button id="login"
                     type="button"
