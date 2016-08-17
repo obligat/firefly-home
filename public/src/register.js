@@ -40,7 +40,15 @@ function checkPassword(password) {
   }
 }
 
+function isEqual(password, confirmPass) {
+  if (password === confirmPass) {
+    return '';
+  }
+
+  return '两次输入密码不一致';
+}
 module.exports = {
   checkUsername,
-  checkPassword
+  checkPassword,
+  isEqual
 };
