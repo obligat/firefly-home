@@ -1,20 +1,20 @@
-import React from 'react'; // eslint-disable-line no-unused-vars
+import React from 'react';//eslint-disable-line no-unused-vars
 import {render} from 'react-dom';
 import LoginComponent from './components/LoginComponent';
 import rootReducer from './reducers/login';
 import {createStore, applyMiddleware} from 'redux';
 import {Provider} from 'react-redux';
-import thunkMiddleware from 'redux-thunk'
+import thunkMiddleware from 'redux-thunk'; //eslint-disable-line no-unused-vars
 
 
 const store = createStore(
-    rootReducer,
+  rootReducer,
   applyMiddleware(thunkMiddleware)
 );
 
 render(
-    <Provider store={store}>
-      <LoginComponent/>
-    </Provider>,
+  <Provider store={store}>
+    <LoginComponent/>
+  </Provider>,
   document.getElementById('login')
 );

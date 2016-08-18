@@ -1,4 +1,4 @@
-import superAgent from "superagent";
+import superAgent from 'superagent';
 
 export const isExistName = (username)=> {
   return (dispatch)=> {
@@ -6,19 +6,17 @@ export const isExistName = (username)=> {
       .get('/api/users')
       .query({username: username})
       .end((err, res)=> {
-        console.log(res.body.exist);
-
-        if (err) console.log(err);
+        if (err) return err;
         dispatch(userExist(res.body.exist));
       });
-  }
+  };
 };
 
 export const userExist = (exist)=> {
   return {
     type: 'USER_EXIST',
     exist
-  }
+  };
 };
 
 export const checkPassword = (username, password)=>{
@@ -28,20 +26,19 @@ export const checkPassword = (username, password)=>{
       .get('/api/users/validation')
       .query({username:username,password:password})
       .end((err,res)=>{
-        console.log('respond coming:'+res.body.error+'-'+res.body.message);
 
         if(err){
-          console.log(err)
+          //console.log(err);
         }else {
           dispatch(isCorrectPassword(res.body));
         }
       });
-  }
+  };
 };
 
 export const isCorrectPassword = (data)=>{
   return {
     type:'PASSWORD_CORRECT',
     data
-  }
+  };
 };

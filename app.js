@@ -19,7 +19,6 @@ regRouters(app);
 
 
 app.get('/', (req, res) => {
-  console.log('request came in homepage');
   res.send('Welcome, this is firefly-home');
 });
 

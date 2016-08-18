@@ -18,9 +18,7 @@ Object.keys(rawData)
     modelsMap[v].remove(()=> {
       modelsMap[v].create(rawData[v], ()=> {
         docs = docs.filter(doc => doc !== v);
-        console.log(`The data of ${v} created`);
         if (docs.length === 0) {
-          console.log(`All data refreshed`);
           process.exit(0);
         }
       });

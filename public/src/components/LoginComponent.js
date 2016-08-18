@@ -1,6 +1,6 @@
-import React, {Component} from "react";
-import {isExistName, checkPassword} from "../actions/login";
-import {connect} from "react-redux";
+import React, {Component} from 'react';//eslint-disable-line no-unused-vars
+import {isExistName, checkPassword} from '../actions/login';
+import {connect} from 'react-redux';
 
 class LoginComponent extends Component {
   constructor(props) {
@@ -95,14 +95,14 @@ const mapStateToProps = (state) => {
   return {
     isExist: state.isExist,
     loginMessage: state.loginMessage
-  }
+  };
 };
 
 
 const mapDispatchToProps = (dispatch) => {
   return {
     checkUsername: (username) => {
-      dispatch(isExistName(username))
+      dispatch(isExistName(username));
     },
     checkPassword: (username, password)=> {
       dispatch(checkPassword(username, password));

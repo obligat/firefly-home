@@ -13,12 +13,12 @@ function checkUsername(username) {
     return {
       err: '用户名由数字、字母、下划线组成',
       data: ''
-    }
+    };
   } else if (!isLeagalLength) {
     return {
       err: '用户名长度不能少于6位且不大于16位',
       data: ''
-    }
+    };
   }
 
   return {
@@ -37,7 +37,7 @@ function checkPassword(password) {
   } : {
     err: '密码长度不能少于6位',
     data: ''
-  }
+  };
 }
 
 function isEqual(password, confirmPass) {

@@ -4,7 +4,7 @@
 import mongoose from 'mongoose';
 
 const Rooms = mongoose.model('rooms', {
-    image: String
+  image: String
 });
 
 export default Rooms;
