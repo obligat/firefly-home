@@ -4,50 +4,56 @@ import User from "../models/User";
 let router = express.Router();
 
 router.get('/', (req, res)=> {
-  console.log('request came ' + JSON.stringify(req.query.username));
+
   User
     .where({username: req.query.username})
     .findOne((err, user)=> {
       if (err)
         throw err;
-      res.send({
-          exist: user ? true : false
-        }
-      );
+      let status = 0;
+      let exist = false;
+      user
+        ? (status = 200, exist = true)
+        : (status = 404, exist = false);
+      res.status(status).send({exist});
     });
 });
 
 router.get('/validation', (req, res)=> {
-  console.log('request came '
-    + JSON.stringify(req.query.username)
-    + JSON.stringify(req.query.password));
-
   const username = req.query.username;
   const password = req.query.password;
 
   if (!(username && password)) {
-    res.status(404).send({error: true, message: '用户名及密码不能为空'});
+    return res.status(404).send({error: true, message: '用户名及密码不能为空'});
   }
 
-
-  User.where({username: req.query.username}).findOne((err, user)=> {
+  User.where({username: username}).findOne((err, user)=> {
     if (err)
       throw err;
 
-    console.log('user found: ' + JSON.stringify(user));
+    let status = '';
+    let error = '';
+    let message = '';
 
     if (user) {
-      if (user.password === req.query.password) {
-        res.send({error: false});
+      if (user.password === password) {
+        status = 200;
+        error = false;
       } else {
-        res.send({error: true, message: '密码错误'});
+        status = 404;
+        error = true;
+        message = '密码错误';
       }
     }
     else {
-      res.send({error: true, message: '用户不存在'});
+      status = 404;
+      error = true;
+      message = '用户不存在';
     }
 
+    res.status(status).send({error: error, message: message});
   });
+
 });
 
 module.exports = router;
