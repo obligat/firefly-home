@@ -24,6 +24,21 @@ function isUsernameExist(username, exist, done) {
       }
     })
 }
+
+function login(username, password, loginMessage, done) {
+  request
+    .get('/api/users/validation')
+    .query({username:username, password:password})
+    .expect(loginMessage)
+    .end((err, res)=> {
+      if(err){
+        done.fail(err);
+      }else{
+        done();
+      }
+    })
+}
+
 fdescribe('login', () => {
 
   beforeEach(()=> {
@@ -37,6 +52,12 @@ fdescribe('login', () => {
   it('should access username when it is exist', (done)=> {
     isUsernameExist('lisi', true, done);
   });
+
+  it('should reject login when username or password is null', (done) => {
+    login(null, null, {error: true, message: '用户名及密码不能为空'}, done);
+    login('afar', null, {error: true, message: '用户名及密码不能为空'}, done);
+    login(null, 'afar', {error: true, message: '用户名及密码不能为空'}, done);
+  })
 
 
 
