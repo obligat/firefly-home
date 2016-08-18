@@ -1,39 +1,8 @@
 /**
  * Created by zhangsha on 16-8-16.
  */
-import {checkUsername} from '../public/src/register/register';
-import {checkPassword} from '../public/src/register/register';
 
-fdescribe('checkUsername', () => {
-    it('should return correct username', () => {
-        let userName = '1234_zhangsha';
-        let result = checkUsername(userName);
-        expect(result).toEqual({err: '', data: '1234_zhangsha'});
-    });
-
-    it('should return correct username', () => {
-        let userName = 'shiyue_123';
-        let result = checkUsername(userName);
-        expect(result).toEqual({err: '', data: 'shiyue_123'});
-    });
-
-    it('should return error type info', () => {
-        let userName = '1234_##';
-        let result = checkUsername(userName);
-        expect(result).toEqual({err: '用户名由数字、字母、下划线组成', data: ''});
-    });
-
-    it('should return error type info', () => {
-        let userName = '123_';
-        let result = checkUsername(userName);
-        expect(result).toEqual({err: '用户名长度不能少于6位', data: ''});
-    });
-import {
-        checkUsername,
-        checkPassword,
-        isEqual
-} from '../server/core/register';
-//import {checkPassword} from '../public/src/register';
+import {checkUsername, checkPassword, isEqual} from "../server/core/register";
 
 describe('checkUsername', () => {
   it('should return correct username1', () => {
@@ -59,6 +28,9 @@ describe('checkUsername', () => {
     let result = checkUsername(userName);
     expect(result).toEqual({err: '用户名长度不能少于6位且不大于16位', data: ''});
   });
+});
+
+
 describe('checkPassword', () => {
   it('should show error message with password', () => {
     let password = '1123#45';
