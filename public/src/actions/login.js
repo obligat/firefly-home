@@ -23,15 +23,17 @@ export const userExist = (exist)=> {
 
 export const checkPassword = (username, password)=>{
   return (dispatch)=>{
-
+    
     superAgent
       .get('/api/users/validation')
       .query({username:username,password:password})
       .end((err,res)=>{
+        console.log('respond coming:'+res.body.error+'-'+res.body.message);
+
         if(err){
           console.log(err)
         }else {
-          dispatch(checkPassword(res.body));
+          dispatch(isCorrectPassword(res.body));
         }
       });
   }
