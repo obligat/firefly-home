@@ -6,7 +6,7 @@ import supertest from 'supertest';
 import app from '../app';
 const request = supertest(app);
 
-fdescribe('register', () => {
+describe('register', () => {
   describe('get', () => {
 
     beforeEach(() => {
