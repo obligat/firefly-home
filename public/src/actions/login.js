@@ -3,7 +3,7 @@ import superAgent from "superagent";
 export const isExistName = (name)=> {
   return (dispatch)=> {
     superAgent
-      .get('/users')
+      .get('/api/users')
       .query({name: name})
       .end((err, res)=> {
         console.log(res.body.exist);
@@ -25,7 +25,7 @@ export const isExistPassword = (userName, password)=>{
   return (dispatch)=>{
 
     superAgent
-      .get('/users/validation')
+      .get('/api/users/validation')
       .query({userName:userName,password:password})
       .end((err,res)=>{
         if(err){
