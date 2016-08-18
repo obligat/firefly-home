@@ -1,6 +1,5 @@
 import React, {Component} from "react";
-import {isExistName} from "../actions/login";
-import {isExistPassword} from "../actions/login";
+import {isExistName, checkPassword} from "../actions/login";
 import {connect} from "react-redux";
 
 class LoginComponent extends Component {
@@ -24,7 +23,7 @@ class LoginComponent extends Component {
 
   render() {
 
-    const {isExist,isCorrectPassword} = this.props;
+    const {isExist, loginMessage} = this.props;
     return (
       <div id="all" className="panel panel-default">
 
@@ -52,8 +51,8 @@ class LoginComponent extends Component {
                 isExist ? ('') : (<span id="errName">用户未注册</span>)
               }<br/>
             </div>
-            
-            
+
+
             <div id="passwordDiv" className="col-xs-5 input-group">
               <span className="input-group-addon glyphicon glyphicon-lock"/>
               <input
@@ -64,10 +63,10 @@ class LoginComponent extends Component {
                 placeholder="密码"/>
             </div>
             <div>{
-              isCorrectPassword ? ('') : (<span id="errPsw">密码错误</span>)
+              loginMessage.error ? (<span id="errPsw">{loginMessage.message}</span>) : ('')
             }<br/>
             </div>
-            
+
 
             <button id="login"
                     type="button"
@@ -95,7 +94,7 @@ class LoginComponent extends Component {
 const mapStateToProps = (state) => {
   return {
     isExist: state.isExist,
-    isCorrectPassword: state.isCorrectPassword
+    loginMessage: state.loginMessage
   }
 };
 
@@ -106,7 +105,7 @@ const mapDispatchToProps = (dispatch) => {
       dispatch(isExistName(username))
     },
     checkPassword: (username, password)=> {
-      dispatch(isExistPassword(username, password));
+      dispatch(checkPassword(username, password));
     }
   };
 };

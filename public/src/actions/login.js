@@ -1,10 +1,10 @@
 import superAgent from "superagent";
 
-export const isExistName = (name)=> {
+export const isExistName = (username)=> {
   return (dispatch)=> {
     superAgent
       .get('/api/users')
-      .query({name: name})
+      .query({username: username})
       .end((err, res)=> {
         console.log(res.body.exist);
 
@@ -21,25 +21,25 @@ export const userExist = (exist)=> {
   }
 };
 
-export const isExistPassword = (userName, password)=>{
+export const checkPassword = (username, password)=>{
   return (dispatch)=>{
 
     superAgent
       .get('/api/users/validation')
-      .query({userName:userName,password:password})
+      .query({username:username,password:password})
       .end((err,res)=>{
         if(err){
           console.log(err)
         }else {
-          dispatch(passwordExist(res.body.exist));
+          dispatch(checkPassword(res.body));
         }
       });
   }
 };
 
-export const passwordExist = (exist)=>{
+export const isCorrectPassword = (data)=>{
   return {
     type:'PASSWORD_CORRECT',
-    exist
+    data
   }
 };

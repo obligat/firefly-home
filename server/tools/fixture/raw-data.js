@@ -1,15 +1,15 @@
 export default {
   User: [{
-      name: 'zhangsan',
+      username: 'zhangsan',
       password: '12345'
     }, {
-      name: 'lisi',
+      username: 'lisi',
       password: '12345'
     }, {
-      name: 'wangwu',
+      username: 'wangwu',
       password: '12345'
     }, {
-      name: 'haha',
+      username: 'haha',
       password: '12345'
     }]
 };

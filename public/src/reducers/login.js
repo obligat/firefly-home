@@ -10,10 +10,11 @@ const isExist = (state = true, action) => {
   }
 };
 
-const isCorrectPassword = (state = true, action) => {
+const loginMessage = (state = {}, action) => {
   switch (action.type) {
     case 'PASSWORD_CORRECT':
-      return action.exist;
+      return action.data
+
     default:
       return state;
   }
@@ -23,7 +24,7 @@ const isCorrectPassword = (state = true, action) => {
 
 const rootReducer = combineReducers({
   isExist,
-  isCorrectPassword
+  loginMessage
 });
 
 export default rootReducer;
