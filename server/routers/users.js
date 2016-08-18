@@ -3,6 +3,31 @@ import User from "../models/User";
 
 let router = express.Router();
 
+router.post('/register', (req, res)=> {
+  User.where({username: req.body.username}).findOne((err, user) => {
+    if (err) {
+      throw err;
+    } else {
+      user ?
+        res.send({error: '用户已存在'}) :
+        new User({
+          username: req.body.username,
+          password: req.body.password
+        }
+        ).save((err, user)=> {
+          if (err) {
+            throw  err;
+          }
+          else {
+            res.send({error: ''});
+          }
+        });
+    }
+  });
+
+});
+
+
 router.get('/', (req, res)=> {
 
   User
