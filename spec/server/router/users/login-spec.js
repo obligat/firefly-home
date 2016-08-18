@@ -7,38 +7,37 @@ import supertest from 'supertest';
 import server from '../../../../app';
 const request = supertest(server);
 
+
+
+
+
+function isUsernameExist(username, exist, done) {
+  request
+    .get('/api/users')
+    .query({username: username})
+    .expect({exist: exist})
+    .end((err, res) => {
+      if (err) {
+        done.fail(err);
+      } else {
+        done();
+      }
+    })
+}
 fdescribe('login', () => {
 
   beforeEach(()=> {
     spyOn(console, 'log');
   });
 
-  it('should reject username when it is not exist',(done)=> {
-    request
-      .get('/api/users')
-      .query({username: 'afar'})
-      .expect({exist:false})
-      .end((err, res) => {
-        if(err) {
-          done.fail(err);
-        }else{
-          done();
-        }
-      })
-
+  it('should reject username when it is not exist', (done)=> {
+    isUsernameExist('afar', false, done)
   });
-  it('should access username when it is exist',(done)=> {
-    request
-      .get('/api/users')
-      .query({username: 'zhangsan'})
-      .expect({exist:true})
-      .end((err, res) => {
-        if(err) {
-          done.fail(err);
-        }else{
-          done();
-        }
-      })
 
-  })
+  it('should access username when it is exist', (done)=> {
+    isUsernameExist('lisi', true, done);
+  });
+
+
+
 });
