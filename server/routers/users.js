@@ -22,6 +22,13 @@ router.get('/validation', (req, res)=> {
     + JSON.stringify(req.query.username)
     + JSON.stringify(req.query.password));
 
+  const username = req.query.username;
+  const password = req.query.password;
+
+  if (!username && password) {
+    res.status(404).send({error: true, message: '用户名及密码不能为空'});
+  }
+
 
   User.where({username: req.query.username}).findOne((err, user)=> {
     if (err)
