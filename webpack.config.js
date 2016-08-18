@@ -9,7 +9,9 @@ module.exports = {
     ],
     index: ["./public/src/index", "./public/style/index.css"],
     login: ["./public/src/login", "./public/style/login.css"],
-    houselist: ["./public/src/houselist", "./public/style/houselist.css"]
+    houselist: ["./public/src/houselist", "./public/style/houselist.css"],
+    register: ["./public/src/register", "./public/style/register.css"],
+
   },
   output: {
     path: require('path').resolve("./public/dist"),
