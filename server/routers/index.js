@@ -3,7 +3,7 @@
  */
 const regRouter = (app) => {
   app.use('/api/users', require('./users'));
-  app.use('/api/house', require('./houseslist'));
+  app.use('/api/houses', require('./houseslist'));
 };
 
 export default regRouter;
