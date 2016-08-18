@@ -25,7 +25,7 @@ router.get('/validation', (req, res)=> {
   const username = req.query.username;
   const password = req.query.password;
 
-  if (!username && password) {
+  if (!(username && password)) {
     res.status(404).send({error: true, message: '用户名及密码不能为空'});
   }
 
