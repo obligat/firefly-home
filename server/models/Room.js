@@ -3,8 +3,8 @@
  */
 import mongoose from 'mongoose';
 
-const Rooms = mongoose.model('rooms', {
+const Room = mongoose.model('rooms', {
   image: String
 });
 
-export default Rooms;
+export default Room;
