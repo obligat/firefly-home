@@ -1,5 +1,5 @@
 
-import React, {Component} from 'react';
+import {Component} from 'react';
 import {connect} from 'react-redux';
 import {createUser} from  '../actions/register';
 
@@ -12,21 +12,21 @@ class SingUp extends Component {
   }
 
   handleClick() {
-      let username = this.refs.username.value;
-      let password = this.refs.password.value;
-      this.props.createUser(username, password);
-      let confirmPassword = this.refs.confirmPassword.value;
-      if(password !== confirmPassword){
-        this.setState({
-          error: '密码输入不一致'
-        })
-      }
+    let username = this.refs.username.value;
+    let password = this.refs.password.value;
+    this.props.createUser(username, password);
+    let confirmPassword = this.refs.confirmPassword.value;
+    if(password !== confirmPassword){
+      this.setState({
+        error: '密码输入不一致'
+      });
+    }
   }
 
   handleFocus(){
     this.setState({
       error: ''
-    })
+    });
   }
 
   render() {
@@ -82,21 +82,21 @@ class SingUp extends Component {
           </button>
       </div>
 
-    )
+    );
   }
 }
 
 const mapStateToProps = (state)=> {
   return {
     createUserResult: state.createUserResult
-  }
+  };
 };
 const mapDispatchToProps = (dispatch)=> {
   return {
     createUser: (username, password)=> {
       dispatch(createUser(username, password));
     },
-  }
+  };
 };
 export default connect(mapStateToProps, mapDispatchToProps)(SingUp);
 

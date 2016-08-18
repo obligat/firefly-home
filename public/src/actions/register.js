@@ -16,13 +16,11 @@ export const createUser = (username, password)=> {
       })
       .end((err, res)=> {
         if (err) {
-          console.log('9999999999999')
-
-          console.log(err);
+          throw err;
         } else {
           dispatch(addUser(res.body.error));
         }
       });
 
-  }
+  };
 };
