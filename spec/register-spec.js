@@ -16,8 +16,8 @@ describe('register', () => {
     it('should return username is exsit?', (done) => {
       let username = 'zhangsha';
       request
-        .get(`/users/?username=${username}`)
-        .expect({err: '用户名已存在', data: ''})
+        .get(`/api/users/validation?username=${username}`)
+        .expect({error: true, message: '用户名及密码不能为空'})
         .end((err, res) => {
           if (err) {
             done.fail(err);
@@ -28,10 +28,58 @@ describe('register', () => {
     });
 
     it('should return username is exsit?', (done) => {
+      let username = 'zhangsha';
+      let password = '12345';
+
+      request
+        .get(`/api/users/validation?username=${username}&password=${password}`)
+        .expect({error: true, message: '用户不存在'})
+        .end((err, res) => {
+          if (err) {
+            done.fail(err);
+          } else {
+            done();
+          }
+        })
+    });
+
+    it('should return username is exsit?', (done) => {
+      let username = 'zhangsan';
+      let password = '1234';
+
+      request
+        .get(`/api/users/validation?username=${username}&password=${password}`)
+        .expect({error: true, message: '密码错误'})
+        .end((err, res) => {
+          if (err) {
+            done.fail(err);
+          } else {
+            done();
+          }
+        })
+    });
+
+    it('should return username is exsit?', (done) => {
+      let username = 'zhangsan';
+      let password = '12345';
+
+      request
+        .get(`/api/users/validation?username=${username}&password=${password}`)
+        .expect({error: false, message: ''})
+        .end((err, res) => {
+          if (err) {
+            done.fail(err);
+          } else {
+            done();
+          }
+        })
+    });
+
+    fit('should return username is exsit?', (done) => {
       let username = 'zhangsha1213';
       request
-        .get(`/users/?username=${username}`)
-        .expect({err: '', data: 'zhangsha1213'})
+        .get(`/api/users/?username=${username}`)
+        .expect({exist: false})
         .end((err, res) => {
           if (err) {
             done.fail(err);
@@ -93,7 +141,4 @@ describe('register', () => {
 
     });
   });
-
-
-
-})
+});
