@@ -10,7 +10,7 @@ const modelsMap = {
 };
 
 
-export  default  function refresh(done) {
+export  default  function refresh() {
   let docs = Object.keys(rawData);
 
   // mongoose.connect(dbUrl);
@@ -27,7 +27,6 @@ export  default  function refresh(done) {
             // db.close(()=>{
             //   console.log('close');})
             // mongoose.disconnect(()=>{console.log('disconnect')});
-            done();
             // process.exit(0);
           }
         });

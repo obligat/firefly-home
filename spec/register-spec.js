@@ -18,7 +18,7 @@ describe('register', () => {
 
   });
   afterEach((done) => {
-    refresh(()=> {});
+    refresh();
     db.close(done);
   });
 
