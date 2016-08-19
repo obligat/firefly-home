@@ -106,11 +106,11 @@ describe('register', () => {
 
   describe('post', () => {
     it('should return password length is correct?', (done) => {
-      let password = '23451234';
+      let username = 'zhangsan';
       request
-        .post('/users')
-        .send({password: password})
-        .expect({err: '', data: '23451234'})
+        .post('/api/users/register')
+        .send({username: username})
+        .expect({error: '用户已存在'})
         .end((err, res) => {
           if (err) {
             done.fail(err);
