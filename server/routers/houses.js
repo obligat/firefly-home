@@ -8,11 +8,23 @@ import House from '../models/House';
 let router = express.Router();
 
 router.get('/', (req, res)=> {
-  House.find((err, house)=> {
+  House.find((err, houses)=> {
     if (err) {
       throw err;
     } else {
-      res.send(house);
+
+      const result = houses.map((house)=> {
+        return {
+          name: house.name,
+          price: house.price,
+          address: house.address,
+          province: house.province,
+          type: house.type,
+          image: house.image
+        }
+      });
+
+      res.send(result);
     }
   });
 })
