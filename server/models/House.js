@@ -4,12 +4,12 @@
 import mongoose from 'mongoose';
 
 const House = mongoose.model('House', {
-    name: String,
-    price: Number,
-    address: String,
-    province: String,
-    type: String,
-    image: String
+  name: String,
+  price: Number,
+  address: String,
+  province: String,
+  type: String,
+  image: String
 });
 
 export default  House;

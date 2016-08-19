@@ -8,13 +8,13 @@ import House from '../models/House';
 let router = express.Router();
 
 router.get('/', (req, res)=> {
-    House.find((err, house)=> {
-        if (err) {
-            throw err;
-        } else {
-            res.send(house);
-        }
-    });
+  House.find((err, house)=> {
+    if (err) {
+      throw err;
+    } else {
+      res.send(house);
+    }
+  });
 })
 ;
 

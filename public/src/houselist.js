@@ -9,15 +9,15 @@ import rootReducer from './reducers/houseResource';
 
 
 const store = createStore(
-    rootReducer,
-    applyMiddleware(thunkMiddleware)
+  rootReducer,
+  applyMiddleware(thunkMiddleware)
 );
 
 store.dispatch(requestHouseList());
 
 render(
-    <Provider store={store}>
-        <HouseResource/>
-    </Provider>,
-    document.getElementById('houselist')
+  <Provider store={store}>
+    <HouseResource/>
+  </Provider>,
+  document.getElementById('houselist')
 );

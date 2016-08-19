@@ -6,25 +6,25 @@ import {connect} from 'react-redux';
 import HouseList from './HouseList';
 
 class HouseResource extends Component {
-    constructor(props) {
-        super(props);
-    }
+  constructor(props) {
+    super(props);
+  }
 
-    render() {
-        const {houseResource} = this.props;
+  render() {
+    const {houseResource} = this.props;
 
-        return (
-            <div>
-                <HouseList houses={houseResource}/>
-            </div>
-        )
-    }
+    return (
+      <div>
+        <HouseList houses={houseResource}/>
+      </div>
+    );
+  }
 }
 
 const mapStateToProps = (state) => {
-    return {
-        houseResource: state.houseResource
-    }
+  return {
+    houseResource: state.houseResource
+  };
 };
 
 export default connect(mapStateToProps)(HouseResource);

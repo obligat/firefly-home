@@ -4,18 +4,18 @@
 import request from 'superagent';
 
 export const requestHouseList = ()=> {
-    return (dispatch)=> {
-        request.get('/api/houses')
-            .end((err, res)=> {
-                dispatch(houseResource(res.body));
-            });
-    };
+  return (dispatch)=> {
+    request.get('/api/houses')
+      .end((err, res)=> {
+        dispatch(houseResource(res.body));
+      });
+  };
 };
 
 
 export const houseResource = (houses)=> {
-    return {
-        type: 'RECEIVE_HOUSE_RESOURCE',
-        data: houses
-    }
+  return {
+    type: 'RECEIVE_HOUSE_RESOURCE',
+    data: houses
+  };
 };
