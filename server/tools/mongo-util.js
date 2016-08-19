@@ -10,10 +10,11 @@ const modelsMap = {
 };
 
 
-export  default  function refresh() {
+export  default  function refresh(done) {
   let docs = Object.keys(rawData);
 
-  mongoose.connect(dbUrl);
+  // mongoose.connect(dbUrl);
+  // const db = mongoose.createConnection(dbUrl);
 
   Object.keys(rawData)
     .forEach(v => {
@@ -23,11 +24,16 @@ export  default  function refresh() {
           console.log(`The data of ${v} created`); // eslint-disable-line no-console
           if (docs.length === 0) {
             console.log('All data refreshed'); // eslint-disable-line no-console
-            process.exit(0);
+            // db.close(()=>{
+            //   console.log('close');})
+            // mongoose.disconnect(()=>{console.log('disconnect')});
+            done();
+            // process.exit(0);
           }
         });
       });
     });
+
 
 }
 
