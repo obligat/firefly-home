@@ -105,7 +105,7 @@ describe('register', () => {
   });
 
   describe('post', () => {
-    it('should return password length is correct?', (done) => {
+    it('should return the user is exist', (done) => {
       let username = 'zhangsan';
       request
         .post('/api/users/register')
@@ -121,7 +121,7 @@ describe('register', () => {
     });
 
     it('should add user info to database', (done) => {
-      let username = 'fucongcong';
+      let username = 'fucong';
       let password = '1234567';
       request
         .post(`/api/users/register`)
@@ -145,8 +145,9 @@ describe('register', () => {
         let password = '1234567';
         request
           .post(`/api/users/register`)
+          .type('form')
           .send({username: username, password: password})
-          .expect('注册成功')
+          .expect({error: ''})
           .end((err, res) => {
             if (err) {
               done.fail(err);
