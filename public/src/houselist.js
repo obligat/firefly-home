@@ -1,6 +1,6 @@
 import React from 'react';//eslint-disable-line no-unused-vars
 import {render} from 'react-dom';
-import HouseResource from './components/HouseResource';
+import HouseResource from './components/houseComponents/HouseResource';
 import rootReducer from './reducers/login';
 import {createStore, applyMiddleware} from 'redux';
 import {Provider} from 'react-redux';
