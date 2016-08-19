@@ -12,7 +12,7 @@ times=30
 
 while [ $times -gt 0 ]; do
 	npm test  # run test
-	echo "# $times -------------------"
+	echo "----------------------- # $times "
 	times=$((times-1))
 done
 echo 'All test finished'
