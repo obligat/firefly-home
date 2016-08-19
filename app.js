@@ -17,14 +17,6 @@ app.use(express.static(__dirname + '/public'));
 
 regRouters(app);
 
-
-app.get('/', (req, res) => {
-  res.send('Welcome, this is firefly-home');
-});
-
-
-
-
 app.listen(3000, ()=> {
   console.log('Server start at http://localhost:3000'); // eslint-disable-line no-console
 });
