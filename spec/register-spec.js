@@ -5,21 +5,22 @@
 import supertest from 'supertest';
 import app from '../app';
 import refresh from '../server/tools/mongo-util';
-const request = supertest(app);
 import mongoose from 'mongoose';
+import dbUrl from '../db-config';
+const request = supertest(app);
 
 
 describe('register', () => {
-  let db;
-  beforeEach(()=> {
+  let connection;
+
+  beforeAll(()=> {
     spyOn(console, 'log');
-    db = mongoose.createConnection('mongodb://localhost:27017/mongoose_test');
-
-
+    connection = mongoose.createConnection(dbUrl);
   });
-  afterEach((done) => {
+
+  afterAll((done) => {
     refresh();
-    db.close(done);
+    connection.close(done);
   });
 
 
