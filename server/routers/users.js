@@ -14,7 +14,7 @@ router.post('/register', (req, res)=> {
           username: req.body.username,
           password: req.body.password
         }
-        ).save((err, user)=> {
+        ).save((err, user)=> {// eslint-disable-line no-unused-vars
           if (err) {
             throw  err;
           }
@@ -52,7 +52,7 @@ router.get('/validation', (req, res)=> {
     return res.status(404).send({error: true, message: '用户名及密码不能为空'});
   }
 
-  User.where({username: username}).findOne((err, user)=> {
+  User.where({username: username}).findOne((err, user)=> {// eslint-disable-line  complexity
     if (err)
       throw err;
 
