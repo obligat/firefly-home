@@ -120,12 +120,14 @@ describe('register', () => {
         });
     });
 
-    it('should return password length is correct?', (done) => {
-      let password = '2345';
+    it('should add user info to database', (done) => {
+      let username = 'fucongcong';
+      let password = '1234567';
       request
-        .post('/users')
-        .send({password: password})
-        .expect({err: '密码长度不能少于6位', data: '2345'})
+        .post(`/api/users/register`)
+        .type('form')
+        .send({username: username, password: password})
+        .expect({error: ''})
         .end((err, res) => {
           if (err) {
             done.fail(err);
@@ -134,25 +136,25 @@ describe('register', () => {
           }
         });
 
-    })
-  });
+    });
 
-  describe('post', () => {
-    it('should add user info to database', (done) => {
-      let username = 'tongyang';
-      let password = '1234567';
-      request
-        .post(`/register`)
-        .send({username: username, password: password})
-        .expect('注册成功')
-        .end((err, res) => {
-          if (err) {
-            done.fail(err);
-          } else {
-            done();
-          }
-        })
 
+    describe('post', () => {
+      it('should add user info to database', (done) => {
+        let username = 'tongyang';
+        let password = '1234567';
+        request
+          .post(`/api/users/register`)
+          .send({username: username, password: password})
+          .expect('注册成功')
+          .end((err, res) => {
+            if (err) {
+              done.fail(err);
+            } else {
+              done();
+            }
+          })
+      });
     });
   });
 });
