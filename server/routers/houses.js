@@ -9,8 +9,13 @@ let router = express.Router();
 
 router.get('/', (req, res)=> {
     House.find((err, house)=> {
-        res.send(house);
+        if (err) {
+            throw err;
+        } else {
+            res.send(house);
+        }
     });
-});
+})
+;
 
 module.exports = router;
