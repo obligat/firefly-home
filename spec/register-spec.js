@@ -75,11 +75,25 @@ describe('register', () => {
         })
     });
 
-    fit('should return username is exsit?', (done) => {
+    it('should return username is exsit?', (done) => {
       let username = 'zhangsha1213';
       request
         .get(`/api/users/?username=${username}`)
         .expect({exist: false})
+        .end((err, res) => {
+          if (err) {
+            done.fail(err);
+          } else {
+            done();
+          }
+        })
+    });
+
+    it('should return username is exsit?', (done) => {
+      let username = 'zhangsan';
+      request
+        .get(`/api/users/?username=${username}`)
+        .expect({exist: true})
         .end((err, res) => {
           if (err) {
             done.fail(err);
