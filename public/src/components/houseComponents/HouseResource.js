@@ -12,14 +12,19 @@ class HouseResource extends Component {
 
     render() {
         const {houseResource} = this.props;
+
         return (
             <div>
-                <HouseList house = {houseResource}/>
+                <HouseList houses={houseResource}/>
             </div>
         )
     }
 }
 
-const mapStateToProps = (state) => {state.houseResource};
+const mapStateToProps = (state) => {
+    return {
+        houseResource: state.houseResource
+    }
+};
 
 export default connect(mapStateToProps)(HouseResource);

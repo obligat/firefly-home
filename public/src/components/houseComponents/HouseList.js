@@ -6,12 +6,13 @@ import HouseItem from './HouseItem';
 
 class HouseList extends Component {
     render() {
-        let {house}=this.props;
+        let {houses}=this.props;
         return (
             <div>
                 {
-                    house.map((v, k)=>(
-                        <HouseItem key={k} name={v.name}
+
+                    houses.map((v, k)=>(
+                        <HouseItem key={k} name={v.name} type={v.type}
                                    price={v.price} address={v.address}
                                    province={v.province} image={v.image}/>
                     ))
