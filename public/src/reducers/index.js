@@ -1,17 +1,12 @@
 import {combineReducers} from 'redux';
-
-const isExist = (state = true, action) => {
-  switch (action.type) {
-  case 'USER_EXIST':
-    return action.exist;
-  default:
-    return state;
-  }
-};
-
+import {createUserResult} from './register';
+import {isExist} from './login';
+import {loginMessage} from './login';
 
 const rootReducer = combineReducers({
-  isExist
+  createUserResult,
+  isExist,
+  loginMessage
 });
 
 export default rootReducer;

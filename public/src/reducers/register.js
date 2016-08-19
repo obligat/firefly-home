@@ -1,6 +1,5 @@
-import {combineReducers} from 'redux';
 
-const createUserResult = (state = false, action)=> {
+export const createUserResult = (state = false, action)=> {
   switch (action.type) {
   case 'ADD_USER':
     return action.message;
@@ -8,9 +7,3 @@ const createUserResult = (state = false, action)=> {
   return state;
 };
 
-
-const resultList = combineReducers({
-  createUserResult
-});
-
-export default resultList;
