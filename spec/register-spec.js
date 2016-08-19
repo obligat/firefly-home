@@ -109,6 +109,7 @@ describe('register', () => {
       let username = 'zhangsan';
       request
         .post('/api/users/register')
+        .type('form')
         .send({username: username})
         .expect({error: '用户已存在'})
         .end((err, res) => {
