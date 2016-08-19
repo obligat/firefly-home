@@ -5,7 +5,7 @@ import request from 'superagent';
 
 export const requestHouseList = ()=> {
     return (dispatch)=> {
-        request.get('/houses')
+        request.get('/api/houses')
             .end((err, res)=> {
                 dispatch(houseResource(res.body));
             });
