@@ -21,7 +21,7 @@ router.get('/', (req, res)=> {
           province: house.province,
           type: house.type,
           image: house.image
-        }
+        };
       });
 
       res.send(result);
