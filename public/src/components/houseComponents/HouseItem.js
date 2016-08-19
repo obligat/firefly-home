@@ -1,7 +1,7 @@
 /**
  * Created by fcc on 16-8-18.
  */
-import {Component} from 'react';
+import React, {Component} from 'react';//eslint-disable-line no-unused-vars
 
 class HouseItem extends Component {
   render() {
