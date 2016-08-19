@@ -1,6 +1,16 @@
 import mongoose from 'mongoose';
+import rawData from './fixture/raw-data';
+import User from '../models/User';
+import House from '../models/House';
+import dbUrl from '../../db-config';
 
-export  default  function refresh(modelsMap, rawData, dbUrl) {
+const modelsMap = {
+  User,
+  House
+};
+
+
+export  default  function refresh() {
   let docs = Object.keys(rawData);
 
   mongoose.connect(dbUrl);
