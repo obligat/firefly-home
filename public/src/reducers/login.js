@@ -1,3 +1,18 @@
-/**
- * Created by zhangsha on 16-8-19.
- */
+
+export const isExist = (state = true, action) => {
+  switch (action.type) {
+  case 'USER_EXIST':
+    return action.exist;
+  default:
+    return state;
+  }
+};
+
+export const loginMessage = (state = {}, action) => {
+  switch (action.type) {
+  case 'PASSWORD_CORRECT':
+    return action.data;
+  default:
+    return state;
+  }
+};

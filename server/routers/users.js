@@ -2,23 +2,21 @@ import express from  'express';
 import User from '../models/User';
 
 let router = express.Router();
-
 router.post('/register', (req, res)=> {
   User.where({username: req.body.username}).findOne((err, user) => {
     if (err) {
       throw err;
     } else {
       user ?
-        res.send({error: '用户已存在'}) :
+        res.send({error: '用户名已注册'}) :
         new User({
           username: req.body.username,
           password: req.body.password
         }
-        ).save((err, user)=> {
+        ).save((err, user)=> {//eslint-disable-line no-unused-vars
           if (err) {
             throw  err;
-          }
-          else {
+          }else {
             res.send({error: ''});
           }
         });
@@ -53,6 +51,7 @@ router.get('/validation', (req, res)=> {
   }
 
   User.where({username: username}).findOne((err, user)=> {
+
     if (err)
       throw err;
 
