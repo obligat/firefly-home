@@ -10,9 +10,8 @@ let router = express.Router();
 router.get('/', (req, res)=> {
   House.find((err, houses)=> {
     if (err) {
-      throw err;
+      return res.sendStatus(500);
     } else {
-
       const result = houses.map((house)=> {
         return {
           name: house.name,
@@ -27,7 +26,6 @@ router.get('/', (req, res)=> {
       res.send(result);
     }
   });
-})
-;
+});
 
 module.exports = router;
