@@ -1,7 +1,5 @@
-import {combineReducers} from 'redux';
 
-
-const isExist = (state = true, action) => {
+export const isExist = (state = true, action) => {
   switch (action.type) {
   case 'USER_EXIST':
     return action.exist;
@@ -10,7 +8,7 @@ const isExist = (state = true, action) => {
   }
 };
 
-const loginMessage = (state = {}, action) => {
+export const loginMessage = (state = {}, action) => {
   switch (action.type) {
   case 'PASSWORD_CORRECT':
     return action.data;
@@ -18,15 +16,3 @@ const loginMessage = (state = {}, action) => {
     return state;
   }
 };
-
-
-const rootReducer = combineReducers({
-  isExist,
-  loginMessage
-});
-
-export default rootReducer;
-
-
-
-

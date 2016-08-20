@@ -124,7 +124,7 @@ describe('register', () => {
         .post('/api/users/register')
         .type('form')
         .send({username: username})
-        .expect({error: '用户已存在'})
+        .expect({error: '用户名已注册'})
         .end((err, res) => {
           if (err) {
             done.fail(err);

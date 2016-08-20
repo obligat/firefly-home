@@ -1,60 +1,48 @@
-
-.header{
-    height: 55px;
-    background-color: #e7c3c3;
-    line-height: 55px;
-}
-
-.right{
-    width: 400px;
-    float: right;
-}
-
-.left{
-    float: left;
-}
-
-.issue-room {
-    background-color: lightseagreen;
-    line-height: 40px;
+#all {
+    margin: 15% 30%;
+    border: 1px solid #4cae4c;
     text-align: center;
+    height: 50%;
+    color: #398439;
 }
 
-.title-span{
-    font-size: 24px;
+#errName, #errPsw {
+    color: red;
 }
 
-a:hover{
-    text-decoration: none;
+#nameDiv, #passwordDiv {
+    margin: 0 auto;
 }
 
-a{
-    text-decoration: none;
+#login {
+    margin-left: 10px;
 }
 
-.room1-picture{
-    width: 660px;
-    height: 435px;
+#cancel {
+    margin-left: 10px;
 }
 
-
-.preview{
-    height: 200px;
-    width:720px;
-}
-.room{
-    width: 110px;
-    height: 90px;
-    cursor: pointer;
+a {
+    margin-left: 350px;
 }
 
-.body-right{
-    float: right;
+.register{
+    width:480px;
+    margin: 0 auto;
 }
 
-li{
-    float: left;
-    list-style-type: none;
-    width: 100px;
+.title {
     text-align: center;
+    border: 1px rosybrown;
+    width: 100%;
+    height: 150px;
+    font-family: "Abyssinica SIL";
+    font-size: 37px;
 }
+
+.page{
+    background-repeat: no-repeat;
+    background-image: url("http://img02.tooopen.com/images/20160620/tooopen_sy_165702881727.jpg");
+    height: 600px;
+}
+
