@@ -1,6 +1,7 @@
 import React, {Component} from 'react';//eslint-disable-line no-unused-vars
 import {isExistName, checkPassword} from '../actions/login';
 import {connect} from 'react-redux';
+import {withRouter, Link} from 'react-router';
 
 class LoginComponent extends Component {
   constructor(props) {
@@ -18,6 +19,13 @@ class LoginComponent extends Component {
     let password = this.refs.psw.value;
     this.props.checkPassword(userName, password);
 
+  }
+
+  componentWillUpdate(nextProps) {
+
+    if (!nextProps.loginMessage.erroring && nextProps.isExist) {
+      this.props.router.push('/homepage');
+    }
   }
 
 
@@ -74,17 +82,13 @@ class LoginComponent extends Component {
                     onClick={this.handlerClick.bind(this)}>
               登录
             </button>
-            <button id="cancel"
-                    type="button"
-                    className="btn btn-success">
-              取消
-            </button>
+            
           </form>
           <br/>
         </div>
 
         <div id="footer">
-          <a href="">注册新账号</a>
+          <Link id='loginToRegister' to="/register">注册新账号</Link>
         </div>
       </div>
     );
@@ -110,4 +114,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(LoginComponent);
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(LoginComponent));
