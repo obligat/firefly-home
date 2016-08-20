@@ -22,7 +22,7 @@ router.get('/', (req, res)=> {
           type: house.type,
           image: house.image
         };
-      }).sort((a,b)=>a.image > b.image);
+      }).sort((a, b)=>a.image > b.image);
 
       res.send(result);
     }
