@@ -43,36 +43,8 @@ describe('login', () => {
     spyOn(console, 'log');
   });
 
-  it('should reject username when it is not exist',(done)=> {
-    request
-      .get('/api/users')
-      .query({username: 'afar'})
-      .expect({exist:false})
-      .end((err, res) => {
-        if(err) {
-          done.fail(err);
-        }else{
-          done();
-        }
-      })
-
-  });
-  it('should access username when it is exist',(done)=> {
-    request
-      .get('/api/users')
-      .query({username: 'zhangsan'})
-      .expect({exist:true})
-      .end((err, res) => {
-        if(err) {
-          done.fail(err);
-        }else{
-          done();
-        }
-      })
-
-  });
   it('should reject login when username or password is null', (done) => {
-    const status = 404;
+    const status = 403;
     login(null, null, status, {error: true, message: '用户名及密码不能为空'}, done);
     login('afar', null, status, {error: true, message: '用户名及密码不能为空'}, done);
     login(null, 'afar', status, {error: true, message: '用户名及密码不能为空'}, done);
@@ -90,19 +62,19 @@ describe('login', () => {
     });
 
     it('should reject login when password does not match', (done) => {
-      const status = 404;
+      const status = 403;
       login('lisi', 'xxxxx', status, {error: true, message: '密码错误'}, done);
     })
   });
 
   describe('username does not exist', () => {
     it('should reject username', (done)=> {
-      const status = 404;
+      const status = 403;
       isUsernameExist('afar', status, false, done);
     });
 
     it('should reject login', (done) => {
-      const status = 404;
+      const status = 403;
       login('xxxxx', '12345', status, {error: true, message: '用户不存在'}, done);
     });
   });
