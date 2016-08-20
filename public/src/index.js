@@ -11,6 +11,7 @@ import {Router, Route, IndexRoute} from 'react-router';
 import App from './components/App';
 import Register from './components/Register';
 import LoginComponent from './components/LoginComponent';
+import Homepage from './components/Homepage';
 
 
 const store = createStore(
@@ -22,8 +23,10 @@ render(
   <Provider store={store}>
     <Router>
       <Route path="/" component={App}>
-        <IndexRoute  component={Register}/>
+        <IndexRoute  component={LoginComponent}/>
+        <Route path="/register" component={Register}/>
         <Route path="/login" component={LoginComponent}/>
+        <Route path="/homepage" component={Homepage}/>
       </Route>
     </Router>
   </Provider>,
