@@ -18,7 +18,7 @@ router.get('/', (req, res)=> {
           name: house.name,
           price: house.price,
           address: house.address,
-          province: house.province,
+          city: house.city,
           type: house.type,
           image: house.image
         };
