@@ -7,7 +7,9 @@ class Register extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      error: '',
+      nameError: '',
+      pwdError: '',
+      confirmError: ''
     };
   }
 
@@ -17,31 +19,76 @@ class Register extends Component {
     }
   }
 
+  handleNameKeyPress(e) {
+    if (e.charCode === 13) {
+      this.checkUsername();
+    }
+  }
+
+  handlePwdKeyPress(e) {
+    if (e.charCode === 13) {
+      this.checkPassword();
+    }
+  }
+
+  handleConfirmKeyPress(e) {
+    if (e.charCode === 13) {
+      this.checkPasswordEqual();
+    }
+  }
+
+  checkUsername() {
+    let username = this.refs.username.value;
+    let pattern = /^[A-Za-z0-9_|0-9A-Za-z_]+$/;
+    if (!pattern.test(username)) {
+      this.setState({
+        nameError: '用户名必须有数字、字母、下划线组成'
+      });
+    }
+  }
+
+  checkPassword() {
+    let password = this.refs.password.value;
+    let pattern = /^.{6,16}$/;
+    if (!pattern.test(password)) {
+      this.setState({
+        pwdError: '密码长度为6～16位'
+      });
+    }
+  }
+
+  checkPasswordEqual() {
+    let password = this.refs.password.value;
+    let confirmPassword = this.refs.confirmPassword.value;
+    if (!(password === confirmPassword)) {
+      this.setState({
+        confirmError: '密码输入不一致'
+      });
+    }
+  }
+
   handleFocus() {
     this.setState({
-      error: ''
+      nameError: '',
+      pwdError: '',
+      confirmError: ''
     });
-
   }
 
   handleClick() {
     let username = this.refs.username.value;
     let password = this.refs.password.value;
     let confirmPassword = this.refs.confirmPassword.value;
-    if (password != confirmPassword) {
-      this.setState({
-        error: '密码输入不一致'
-      });
-    } else {
+    if (confirmPassword === password) {
       this.props.createUser(username, password);
     }
   }
 
   render() {
-    const {createUserResult} = this.props;
+    const createUserResult = this.props.createUserResult;
 
     return (
-      <div className="page">
+      <div className="page hidden-sm">
         <div className="data-toggle register">
           <div className="title">Welcome To Firefly Home</div>
           <div>
@@ -49,36 +96,32 @@ class Register extends Component {
               <div className="form-group">
                 <label for="inputEmail3" className="col-sm-2 control-label">Username</label>
                 <div className="col-sm-10">
-                  <input type="email" className="form-control" id="inputEmail3" placeholder="Username" ref='username'/>
-                  <span>{createUserResult}</span>
-
-
+                  <input type="email" className="form-control" id="inputEmail3" placeholder="Username" ref='username'
+                         onFocus={this.handleFocus.bind(this)} onKeyPress={this.handleNameKeyPress.bind(this)}/>
+                  <span>{this.state.nameError}</span>
                 </div>
               </div>
               <div className="form-group">
                 <label for="inputPassword3" className="col-sm-2 control-label">Password</label>
                 <div className="col-sm-10">
-                  <input type="password" className="form-control" id="inputPassword3" placeholder="Password"
-                         onFocus={this.handleFocus.bind(this)}
-                         ref="password"/>
+                  <input type="password" className="form-control" id="inputPassword3" placeholder="Password" onKeyPress={this.handlePwdKeyPress.bind(this)}
+                         onFocus={this.handleFocus.bind(this)} ref="password"/>
+                  <span>{this.state.pwdError}</span>
                 </div>
               </div>
               <div className="form-group">
                 <label for="inputPassword3" className="col-sm-2 control-label">Password</label>
                 <div className="col-sm-10">
-                  <input type="password" className="form-control" id="inputPassword3"
-                         onFocus={this.handleFocus.bind(this)}
-                         placeholder="Please Input Password Again"
-                         ref='confirmPassword'/>
-                  <span>{this.state.error}</span>
+                  <input type="password" className="form-control" id="inputPassword3" onKeyPress={this.handleConfirmKeyPress.bind(this)}
+                         onFocus={this.handleFocus.bind(this)} placeholder="Please Input Password Again" ref='confirmPassword'/>
+                  <span>{this.state.confirmError}</span>
                 </div>
               </div>
               <div className="form-group">
                 <div className="col-sm-offset-2 col-sm-10">
+                  <span>{createUserResult}</span><br/>
                   <button
-                    type="button"
-                    onClick={this.handleClick.bind(this)}>
-                    Sign in
+                    type="button" onClick={this.handleClick.bind(this)}>Sign in
                   </button>
                 </div>
               </div>
