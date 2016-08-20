@@ -8,7 +8,7 @@ export const isExist = (state = true, action) => {
   }
 };
 
-export const loginMessage = (state = {}, action) => {
+export const loginMessage = (state = {error:true}, action) => {
   switch (action.type) {
   case 'PASSWORD_CORRECT':
     return action.data;
