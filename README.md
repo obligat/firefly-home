@@ -12,4 +12,9 @@ twa-camp-2016 集体项目
 7. 杜金桥     obligat  
 8. 陈崇发     Afaren  
 
+## 重复运行jamine测试
+`./run-test.sh` 自动运行测试30次
 
+
+## story access
+`./story-ac.sh` 自动运行`覆盖率`测试及`eslint`检查

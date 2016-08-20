@@ -4,14 +4,27 @@
 'use strict';
 import supertest from 'supertest';
 import app from '../app';
+import refresh from '../server/tools/mongo-util';
+import mongoose from 'mongoose';
+import dbUrl from '../db-config';
 const request = supertest(app);
 
-describe('register', () => {
-  describe('get', () => {
 
-    beforeEach(() => {
-      spyOn(console, 'log');
-    });
+describe('register', () => {
+  let connection;
+
+  beforeAll(()=> {
+    spyOn(console, 'log');
+    connection = mongoose.createConnection(dbUrl);
+  });
+
+  afterAll((done) => {
+    refresh();
+    connection.close(done);
+  });
+
+
+  describe('get', () => {
 
     it('should return username is exsit?', (done) => {
       let username = 'zhangsha';
