@@ -29,7 +29,7 @@ router.get('/', (req, res)=> {
 });
 
 router.get('/:city', (req, res)=> {
-console.log(req.params.city);
+  console.log(req.params.city);
   House
     .where({city: req.params.city})
     .findOne((err, houses)=> {
@@ -37,16 +37,16 @@ console.log(req.params.city);
         return res.sendStatus(500);
       else {
         /*const result = houses.map((house)=> {
-          return {
-            name: house.name,
-            price: house.price,
-            address: house.address,
-            city: house.city,
-            type: house.type,
-            image: house.image
-          };
-        }).sort((a, b)=>a.image > b.image);
-*/
+         return {
+         name: house.name,
+         price: house.price,
+         address: house.address,
+         city: house.city,
+         type: house.type,
+         image: house.image
+         };
+         }).sort((a, b)=>a.image > b.image);
+         */
         res.send(houses);
       }
     });
