@@ -75,5 +75,75 @@ export default {
     city: '上海',
     type: '单间',
     image: 'images/houseImages/09.jpg'
+  },{
+    name: '露水屋',
+    price: 389,
+    address: '西安邮电学院附近',
+    city: '北京',
+    type: '整套',
+    image: 'images/houseImages/10.jpg'
+  },{
+    name: '青山绿水',
+    price: 421,
+    address: '长安南路',
+    city: '北京',
+    type: '单间',
+    image: 'images/houseImages/11.jpg'
+  },{
+    name: '蓝天白云',
+    price: 419,
+    address: '小寨路',
+    city: '上海',
+    type: '整套',
+    image: 'images/houseImages/12.jpg'
+  },{
+    name: '安美公寓',
+    price: 419,
+    address: '雁塔东路',
+    city: '上海',
+    type: '整套',
+    image: 'images/houseImages/13.jpg'
+  },{
+    name: '萤火虫之家',
+    price: 320,
+    address: '雁塔西路',
+    city: '北京',
+    type: '整套',
+    image: 'images/houseImages/14.jpg'
+  },{
+    name: '爱心公寓',
+    price: 241,
+    address: '小寨路',
+    city: '北京',
+    type: '整套',
+    image: 'images/houseImages/15.jpg'
+  },{
+    name: '长流山',
+    price: 213,
+    address: '小寨东路',
+    city: '上海',
+    type: '整套',
+    image: 'images/houseImages/16.jpg'
+  },{
+    name: '蓝天白云',
+    price: 239,
+    address: '小寨路',
+    city: '上海',
+    type: '整套',
+    image: 'images/houseImages/17.jpg'
+  },{
+    name: '小白鼠公寓',
+    price: 319,
+    address: '樱花广场',
+    city: '上海',
+    type: '整套',
+    image: 'images/houseImages/18.jpg'
+  },{
+    name: '旭日元',
+    price: 419,
+    address: '长安南路563号',
+    city: '上海',
+    type: '整套',
+    image: 'images/houseImages/19.jpg'
   }]
 };

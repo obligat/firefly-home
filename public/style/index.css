@@ -14,17 +14,10 @@
     margin: 0 auto;
 }
 
-#login {
-    margin-left: 10px;
-}
-
-#cancel {
-    margin-left: 10px;
-}
-
-a {
+#loginToRegister {
     margin-left: 350px;
 }
+
 
 .register{
     width:480px;
