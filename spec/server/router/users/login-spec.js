@@ -28,8 +28,10 @@ function isUsernameExist(username, status, exist, done) {
 
 function login(username, password, status, loginMessage, done) {
   request
-    .get('/api/users/validation')
-    .query({username: username, password: password})
+    .post('/api/users/validation')
+    .type('form')
+    .send(`username=${username}`)
+    .send(`password=${password}`)
     .expect(status)
     .expect(loginMessage)
     .end((err, res)=> {
@@ -43,12 +45,7 @@ describe('login', () => {
     spyOn(console, 'log');
   });
 
-  it('should reject login when username or password is null', (done) => {
-    const status = 403;
-    login(null, null, status, {error: true, message: '用户名及密码不能为空'}, done);
-    login('afar', null, status, {error: true, message: '用户名及密码不能为空'}, done);
-    login(null, 'afar', status, {error: true, message: '用户名及密码不能为空'}, done);
-  });
+
 
   describe('username exist', () => {
     it('should access username', (done)=> {
@@ -62,19 +59,19 @@ describe('login', () => {
     });
 
     it('should reject login when password does not match', (done) => {
-      const status = 403;
+      const status = 401;
       login('lisi', 'xxxxx', status, {error: true, message: '密码错误'}, done);
     })
   });
 
   describe('username does not exist', () => {
     it('should reject username', (done)=> {
-      const status = 403;
+      const status = 401;
       isUsernameExist('afar', status, false, done);
     });
 
     it('should reject login', (done) => {
-      const status = 403;
+      const status = 401;
       login('xxxxx', '12345', status, {error: true, message: '用户不存在'}, done);
     });
   });
