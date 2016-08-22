@@ -14,6 +14,7 @@ router.get('/', (req, res)=> {
     } else {
       const result = houses.map((house)=> {
         return {
+          id: house._id,
           name: house.name,
           price: house.price,
           address: house.address,
@@ -29,7 +30,6 @@ router.get('/', (req, res)=> {
 });
 
 router.get('/:city', (req, res)=> {
-  console.log(req.params.city);
   House
     .where({city: req.params.city})
     .findOne((err, houses)=> {
@@ -51,4 +51,5 @@ router.get('/:city', (req, res)=> {
       }
     });
 });
+
 module.exports = router;
