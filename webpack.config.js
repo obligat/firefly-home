@@ -8,6 +8,7 @@ module.exports = {
       "./node_modules/font-awesome/css/font-awesome.min.css"
     ],
     index: ["./public/src/index", "./public/style/index.css"],
+    housedetails: ["./public/src/housedetails", "./public/style/housedetails.css"],
     houselist: ["./public/src/houselist", "./public/style/houselist.css"],
   },
   output: {
