@@ -4,6 +4,7 @@
 import React, {Component} from 'react';//eslint-disable-line no-unused-vars
 import {connect} from 'react-redux';
 import HouseList from './HouseList';
+import SelectZone from './SelectZone';
 
 class HouseResource extends Component {
   constructor(props) {
@@ -15,6 +16,8 @@ class HouseResource extends Component {
 
     return (
       <div>
+        <SelectZone />
+        <br/><br/>
         <HouseList houses={houseResource}/>
       </div>
     );
