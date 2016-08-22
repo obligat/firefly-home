@@ -2,16 +2,17 @@
  * Created by fcc on 16-8-18.
  */
 import React, {Component} from 'react';//eslint-disable-line no-unused-vars
+import {Link} from 'react-router';
 
 class HouseItem extends Component {
   render() {
-    let {name, price, address, city, type, image}=this.props;
+    let {id, name, price, address, city, type, image}=this.props;
     return (
       <div className="raw">
         <div className="text-center col-xs-4">
-          <a href="#" className="text-center thumbnail">
+          <Link to={'/houseDetail/' + id} className="text-center thumbnail">
             <img src={image} alt="..."/>
-          </a>
+          </Link>
           <div>{name},{address},{city}</div>
           <div>{type},￥{price}/晚</div>
         </div>

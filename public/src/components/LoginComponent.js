@@ -24,7 +24,7 @@ class LoginComponent extends Component {
   componentWillUpdate(nextProps) {
 
     if (!nextProps.loginMessage.error && nextProps.isExist) {
-      this.props.router.push('/homepage');
+      this.props.router.push('/houseResource');
     }
   }
 

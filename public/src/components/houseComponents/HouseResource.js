@@ -23,7 +23,7 @@ class HouseResource extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    houseResource: state.houseResource
+    houseResource: state.houseResource,
   };
 };
 

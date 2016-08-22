@@ -10,7 +10,9 @@ const House = mongoose.model('House', {
   address: String,
   city: String,
   type: String,
-  image: String
+  image: String,
+  houseDescription: String,
+  situation: String
 });
 
 export default  House;
