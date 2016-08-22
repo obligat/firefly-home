@@ -14,7 +14,7 @@ export const requestHouseList = ()=> {
 
 export const requestHouseOfSelectedCity = (city)=> {
   return (dispatch)=> {
-    request.get(`api/houses/${city}`)
+    request.get(`/api/houses/${city}`)
       .end((err, res)=> {
         dispatch(houseOfSelectedCity(res.body));
       })
