@@ -7,6 +7,7 @@
 #!/bin/bash
 
 echo $'\n\n run test of firefly'
+npm run refreshMongo # refreshMongo before run test, otherwise first test will faild 
 
 times=30
 
