@@ -57,7 +57,6 @@ describe('register', () => {
 
   });
 
-  describe('post', () => {
     it('should allow user register when username is not existed', (done) => {
       let username = 'fucong';
       let password = '1234567';
@@ -92,6 +91,4 @@ describe('register', () => {
         });
     });
 
-
-  });
 });
