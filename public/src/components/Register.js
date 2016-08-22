@@ -19,24 +19,6 @@ class Register extends Component {
     }
   }
 
-  handleNameKeyPress(e) {
-    if (e.charCode === 13) {
-      this.checkUsername();
-    }
-  }
-
-  handlePwdKeyPress(e) {
-    if (e.charCode === 13) {
-      this.checkPassword();
-    }
-  }
-
-  handleConfirmKeyPress(e) {
-    if (e.charCode === 13) {
-      this.checkPasswordEqual();
-    }
-  }
-
   checkUsername() {
     let username = this.refs.username.value;
     let pattern = /^[A-Za-z0-9_|0-9A-Za-z_]+$/;
@@ -67,13 +49,24 @@ class Register extends Component {
     }
   }
 
-  handleFocus() {
+  handleNameFocus(){
     this.setState({
-      nameError: '',
-      pwdError: '',
+      nameError: ''
+    });
+  }
+
+  handlePasswordFocus(){
+    this.setState({
+      pwdError: ''
+    });
+  }
+
+  handleConfirmFocus(){
+    this.setState({
       confirmError: ''
     });
   }
+
 
   handleClick() {
     let username = this.refs.username.value;
@@ -97,23 +90,23 @@ class Register extends Component {
                 <label for="inputEmail3" className="col-sm-2 control-label">Username</label>
                 <div className="col-sm-10">
                   <input type="email" className="form-control" id="inputEmail3" placeholder="Username" ref='username'
-                         onFocus={this.handleFocus.bind(this)} onKeyPress={this.handleNameKeyPress.bind(this)}/>
+                         onFocus={this.handleNameFocus.bind(this)} onBlur={this.checkUsername.bind(this)}/>
                   <span>{this.state.nameError}</span>
                 </div>
               </div>
               <div className="form-group">
                 <label for="inputPassword3" className="col-sm-2 control-label">Password</label>
                 <div className="col-sm-10">
-                  <input type="password" className="form-control" id="inputPassword3" placeholder="Password" onKeyPress={this.handlePwdKeyPress.bind(this)}
-                         onFocus={this.handleFocus.bind(this)} ref="password"/>
+                  <input type="password" className="form-control" id="inputPassword3" placeholder="Password" onBlur={this.checkPassword.bind(this)}
+                         onFocus={this.handlePasswordFocus.bind(this)} ref="password"/>
                   <span>{this.state.pwdError}</span>
                 </div>
               </div>
               <div className="form-group">
                 <label for="inputPassword3" className="col-sm-2 control-label">Password</label>
                 <div className="col-sm-10">
-                  <input type="password" className="form-control" id="inputPassword3" onKeyPress={this.handleConfirmKeyPress.bind(this)}
-                         onFocus={this.handleFocus.bind(this)} placeholder="Please Input Password Again" ref='confirmPassword'/>
+                  <input type="password" className="form-control" id="inputPassword3" onBlur={this.checkPasswordEqual.bind(this)}
+                         onFocus={this.handleConfirmFocus.bind(this)} placeholder="Please Input Password Again" ref='confirmPassword'/>
                   <span>{this.state.confirmError}</span>
                 </div>
               </div>
