@@ -44,7 +44,7 @@ describe('login', () => {
   });
 
   it('should reject login when username or password is null', (done) => {
-    const status = 403;
+    const status = 401;
     login(null, null, status, {error: true, message: '用户名及密码不能为空'}, done);
     login('afar', null, status, {error: true, message: '用户名及密码不能为空'}, done);
     login(null, 'afar', status, {error: true, message: '用户名及密码不能为空'}, done);
@@ -62,19 +62,19 @@ describe('login', () => {
     });
 
     it('should reject login when password does not match', (done) => {
-      const status = 403;
+      const status = 401;
       login('lisi', 'xxxxx', status, {error: true, message: '密码错误'}, done);
     })
   });
 
   describe('username does not exist', () => {
     it('should reject username', (done)=> {
-      const status = 403;
+      const status = 401;
       isUsernameExist('afar', status, false, done);
     });
 
     it('should reject login', (done) => {
-      const status = 403;
+      const status = 401;
       login('xxxxx', '12345', status, {error: true, message: '用户不存在'}, done);
     });
   });

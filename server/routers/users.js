@@ -51,7 +51,7 @@ router.get('/', (req, res)=> {
       let exist = false;
       user
         ? (status = 200, exist = true)
-        : (status = 403, exist = false);
+        : (status = 401, exist = false);
       res.status(status).send({exist});
     });
 });
@@ -61,7 +61,7 @@ router.get('/validation', (req, res)=> {
   const password = req.query.password;
 
   if (!(username && password)) {
-    return res.status(403).send({error: true, message: '用户名及密码不能为空'});
+    return res.status(401).send({error: true, message: '用户名及密码不能为空'});
   }
 
   User.where({username: username}).findOne((err, user)=> { // eslint-disable-line  complexity
@@ -77,13 +77,13 @@ router.get('/validation', (req, res)=> {
         status = 200;
         error = false;
       } else {
-        status = 403;
+        status = 401;
         error = true;
         message = '密码错误';
       }
     }
     else {
-      status = 403;
+      status = 401;
       error = true;
       message = '用户不存在';
     }
