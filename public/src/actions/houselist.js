@@ -12,7 +12,6 @@ export const requestHouseList = ()=> {
   };
 };
 
-
 export const houseResource = (houses)=> {
   return {
     type: 'RECEIVE_HOUSE_RESOURCE',
