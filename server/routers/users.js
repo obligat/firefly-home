@@ -26,11 +26,11 @@ router.post('/register', (req, res)=> {
 
       } else {
         new User({username: username, password: password})
-          .save((err, result) => {
+          .save((err, result) => {   // eslint-disable-line  no-unused-vars
             if (err) status = 500;
             else status = 200;
             return res.status(status).send({});
-          })
+          });
       }
     });
 
@@ -51,6 +51,7 @@ router.get('/', (req, res)=> {
       user
         ? (status = 200, exist = true)
         : (status = 401, exist = false);
+      // console.log('------------------------------check---------------------------status : ' + status);
       res.status(status).send({exist});
     });
 });
@@ -82,6 +83,7 @@ router.post('/validation', (req, res)=> {
       error = true;
       message = '用户不存在';
     }
+    // console.log('-------------------------validation--------------------------------status : ' + status);
 
     return res.status(status).send({error: error, message: message});
   });
