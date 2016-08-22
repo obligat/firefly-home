@@ -4,6 +4,7 @@
 import mongoose from 'mongoose';
 
 const House = mongoose.model('House', {
+  _id:Number,
   name: String,
   price: Number,
   address: String,
