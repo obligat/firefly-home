@@ -29,6 +29,7 @@ function isUsernameExist(username, status, exist, done) {
 function login(username, password, status, loginMessage, done) {
   request
     .post('/api/users/validation')
+    .type('form')
     .send(`username=${username}`)
     .send(`password=${password}`)
     .expect(status)
@@ -41,7 +42,7 @@ function login(username, password, status, loginMessage, done) {
 describe('login', () => {
 
   beforeEach(()=> {
-    // spyOn(console, 'log');
+    spyOn(console, 'log');
   });
 
 
