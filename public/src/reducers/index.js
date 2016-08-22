@@ -2,11 +2,13 @@ import {combineReducers} from 'redux';
 import {createUserResult} from './register';
 import {isExist} from './login';
 import {loginMessage} from './login';
+import {houseResource} from  './houseResource';
 
 const rootReducer = combineReducers({
   createUserResult,
   isExist,
-  loginMessage
+  loginMessage,
+  houseResource
 });
 
 export default rootReducer;

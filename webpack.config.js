@@ -8,7 +8,6 @@ module.exports = {
       "./node_modules/font-awesome/css/font-awesome.min.css"
     ],
     index: ["./public/src/index", "./public/style/index.css"],
-    houselist: ["./public/src/houselist", "./public/style/houselist.css"],
   },
   output: {
     path: require('path').resolve("./public/dist"),

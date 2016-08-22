@@ -12,6 +12,8 @@ import App from './components/App';
 import Register from './components/Register';
 import LoginComponent from './components/LoginComponent';
 import Homepage from './components/Homepage';
+import HouseResource from './components/houseComponents/HouseResource';
+import {requestHouseList} from './actions/houselist';
 
 
 const store = createStore(
@@ -19,13 +21,16 @@ const store = createStore(
   applyMiddleware(thunkMiddleware)
 );
 
+store.dispatch(requestHouseList());
+
 render(
   <Provider store={store}>
     <Router>
       <Route path="/" component={App}>
-        <IndexRoute  component={LoginComponent}/>
+        <IndexRoute component={LoginComponent}/>
         <Route path="/register" component={Register}/>
         <Route path="/login" component={LoginComponent}/>
+        <Router path="/houselist" component={HouseResource}/>
         <Route path="/homepage" component={Homepage}/>
       </Route>
     </Router>
