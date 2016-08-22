@@ -11,7 +11,8 @@ const House = mongoose.model('House', {
   city: String,
   type: String,
   image: String,
-  houseDescription: String
+  houseDescription: String,
+  situation: String
 });
 
 export default  House;

@@ -17,7 +17,7 @@ export default class HouseDetails extends Component {
   }
 
   render() {
-    const {name, price, image, city, address, houseDescription} = this.props.houseDetails;
+    const {name, price, image, city, address, houseDescription, situation} = this.props.houseDetails;
 
     return (
       <div>
@@ -52,7 +52,11 @@ export default class HouseDetails extends Component {
           <div>
             <h2>个性描述</h2>
             {houseDescription}
-            </div>
+          </div>
+          <div>
+            <h2>内部情况</h2>
+            {situation}
+          </div>
         </div>
       </div>
     );
