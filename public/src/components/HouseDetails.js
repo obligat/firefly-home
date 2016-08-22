@@ -17,7 +17,7 @@ export default class HouseDetails extends Component {
   }
 
   render() {
-    const {name, price, image, houseDescription} = this.props.houseDetails;
+    const {name, price, image, city, address, houseDescription} = this.props.houseDetails;
 
     return (
       <div>
@@ -33,11 +33,9 @@ export default class HouseDetails extends Component {
         </div>
         <div>
           <span className="title-span">{name}</span><br/>
-          {/*
            <div>
-           <a href = "#" >萤火虫</a><span>></span><a href="#">上海></a>上海市虹口地区
+           <a href = "#" >萤火虫</a><span>></span><a href="#">{city}></a>{address}
            </div>
-           */}
           <img src={image} className="room1-picture"/>
           <div className="body-right">
             <span>￥{price}/每晚</span>
@@ -54,7 +52,7 @@ export default class HouseDetails extends Component {
           <div>
             <h2>个性描述</h2>
             {houseDescription}
-          </div>
+            </div>
         </div>
       </div>
     );
