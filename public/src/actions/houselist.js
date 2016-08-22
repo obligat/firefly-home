@@ -7,15 +7,30 @@ export const requestHouseList = ()=> {
   return (dispatch)=> {
     request.get('/api/houses')
       .end((err, res)=> {
-        dispatch(houseResource(res.body));
+        dispatch(houseList(res.body));
       });
   };
 };
 
+export const requestHouseOfSelectedCity = (city)=> {
+  return (dispatch)=> {
+    request.get(`api/houses/${city}`)
+      .end((err, res)=> {
+        dispatch(houseOfSelectedCity(res.body));
+      })
+  }
+};
 
-export const houseResource = (houses)=> {
+const houseList = (houses)=> {
   return {
     type: 'RECEIVE_HOUSE_RESOURCE',
+    data: houses
+  };
+};
+
+const houseOfSelectedCity = (houses)=> {
+  return {
+    type: 'HOUSE_OF_SELECTED_CITY',
     data: houses
   };
 };

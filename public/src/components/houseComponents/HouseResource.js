@@ -5,6 +5,8 @@ import React, {Component} from 'react';//eslint-disable-line no-unused-vars
 import {connect} from 'react-redux';
 import HouseList from './HouseList';
 import SelectZone from './SelectZone';
+import {requestHouseOfSelectedCity} from '../../actions/houselist';
+
 
 class HouseResource extends Component {
   constructor(props) {
@@ -12,11 +14,11 @@ class HouseResource extends Component {
   }
 
   render() {
-    const {houseResource} = this.props;
+    const {houseResource, requestHouseOfSelectedCity} = this.props;
 
     return (
       <div>
-        <SelectZone />
+        <SelectZone select={requestHouseOfSelectedCity}/>
         <br/><br/>
         <HouseList houses={houseResource}/>
       </div>
@@ -30,4 +32,12 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps)(HouseResource);
+const mapDispatchToProps = (dispatch)=> {
+  return {
+    requestHouseOfSelectedCity: (city)=> {
+      dispatch(requestHouseOfSelectedCity(city));
+    }
+  }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(HouseResource);
