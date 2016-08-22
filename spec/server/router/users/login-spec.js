@@ -28,8 +28,9 @@ function isUsernameExist(username, status, exist, done) {
 
 function login(username, password, status, loginMessage, done) {
   request
-    .get('/api/users/validation')
-    .query({username: username, password: password})
+    .post('/api/users/validation')
+    .send(`username=${username}`)
+    .send(`password=${password}`)
     .expect(status)
     .expect(loginMessage)
     .end((err, res)=> {
@@ -40,15 +41,10 @@ function login(username, password, status, loginMessage, done) {
 describe('login', () => {
 
   beforeEach(()=> {
-    spyOn(console, 'log');
+    // spyOn(console, 'log');
   });
 
-  it('should reject login when username or password is null', (done) => {
-    const status = 401;
-    login(null, null, status, {error: true, message: '用户名及密码不能为空'}, done);
-    login('afar', null, status, {error: true, message: '用户名及密码不能为空'}, done);
-    login(null, 'afar', status, {error: true, message: '用户名及密码不能为空'}, done);
-  });
+
 
   describe('username exist', () => {
     it('should access username', (done)=> {

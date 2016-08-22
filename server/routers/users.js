@@ -1,3 +1,4 @@
+'use strict';
 import express from  'express';
 import User from '../models/User';
 
@@ -13,35 +14,33 @@ router.post('/register', (req, res)=> {
     return (/^.{6,16}$/).test(password);
   };
 
+
   if (checkUsername(username) && checkPassword(password)) {
+    User.where({username: username}).findOne((err, user) => {
+      let status = 0;
+      if (err) status = 500;
 
-    User.where({username: req.body.username}).findOne((err, user) => {
+      if (user) {
+        status = 403;
+        return res.status(status).send({});
 
-      if (err) {
-        throw err;
       } else {
-        user ?
-          res.send({error: '用户名已注册'}) :
-          new User({
-            username: req.body.username,
-            password: req.body.password
-          }
-          ).save((err, user)=> { // eslint-disable-line no-unused-vars
-            if (err) {
-              throw  err;
-            } else {
-              res.send({error: ''});
-            }
-          });
+        new User({username: username, password: password})
+          .save((err, result) => {
+            if (err) status = 500;
+            else status = 200;
+            return res.status(status).send({});
+          })
       }
     });
+
   }
+
 
 });
 
 
 router.get('/', (req, res)=> {
-
   User
     .where({username: req.query.username})
     .findOne((err, user)=> {
@@ -56,13 +55,9 @@ router.get('/', (req, res)=> {
     });
 });
 
-router.get('/validation', (req, res)=> {
-  const username = req.query.username;
-  const password = req.query.password;
-
-  if (!(username && password)) {
-    return res.status(401).send({error: true, message: '用户名及密码不能为空'});
-  }
+router.post('/validation', (req, res)=> {
+  const username = req.body.username;
+  const password = req.body.password;
 
   User.where({username: username}).findOne((err, user)=> { // eslint-disable-line  complexity
     if (err)
@@ -88,7 +83,7 @@ router.get('/validation', (req, res)=> {
       message = '用户不存在';
     }
 
-    res.status(status).send({error: error, message: message});
+    return res.status(status).send({error: error, message: message});
   });
 });
 
