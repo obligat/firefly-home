@@ -7,49 +7,40 @@ import House from '../models/House';
 
 let router = express.Router();
 
+function returnValue(houses) {
+  return houses.map((house)=> {
+    return {
+      id: house._id,
+      name: house.name,
+      price: house.price,
+      address: house.address,
+      city: house.city,
+      type: house.type,
+      image: house.image
+    }
+  });
+}
+
 router.get('/', (req, res)=> {
   House.find((err, houses)=> {
     if (err) {
       return res.sendStatus(500);
     } else {
-      const result = houses.map((house)=> {
-        return {
-          id: house._id,
-          name: house.name,
-          price: house.price,
-          address: house.address,
-          city: house.city,
-          type: house.type,
-          image: house.image
-        };
-      });
-
-      res.send(result);
+      res.send(returnValue(houses));
     }
   });
 });
 
 router.get('/:city', (req, res)=> {
-  console.log(req.params.city);
   House
     .where({city: req.params.city})
-    .findOne((err, houses)=> {
+    .find((err, houses)=> {
       if (err)
         return res.sendStatus(500);
       else {
-        /*const result = houses.map((house)=> {
-         return {
-         name: house.name,
-         price: house.price,
-         address: house.address,
-         city: house.city,
-         type: house.type,
-         image: house.image
-         };
-         }).sort((a, b)=>a.image > b.image);
-         */
-        res.send(houses);
+        res.send(returnValue(houses));
       }
     });
 });
+
 module.exports = router;

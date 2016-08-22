@@ -6,10 +6,19 @@ import supertest from 'supertest';
 import app from '../app';
 const request = supertest(app);
 
-describe('get', function () {
-  it('should return information of houses', function (done) {
+function callback(err, res, done){
+  if(err, res){
+    done.fail(err);
+  }else{
+    expect(res.body.length).toEqual(expectedCount);
+    done();
+  }
+}
 
-  const expectedCount =19;
+describe('get', function () {
+  it('should return information of houses', (done)=> {
+
+    const expectedCount = 19;
     request
       .get('/api/houses')
       .end((err, res)=> {
@@ -22,7 +31,7 @@ describe('get', function () {
       });
   });
 
-  it('should return information of houses', function (done) {
+  it('should return information of houses', (done)=> {
     let house = null;
     request
       .get('/api/houses')
