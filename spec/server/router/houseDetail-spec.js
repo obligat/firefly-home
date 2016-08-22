@@ -7,12 +7,12 @@ import app from '../../../server/routers/houseDetail';
 const request = supertest(app);
 
 
-describe('post', (done) => {
-  it('should return house detail with name,price,type....', (done) => {
-
-    request
-      .get('/api/houseDetails/')
-
-
-  });
-});
+// describe('post', () => {
+//   it('should return house detail with name,price,type....', (done) => {
+//
+//     request
+//       .get('/api/houseDetails/')
+//
+//
+//   });
+// });
