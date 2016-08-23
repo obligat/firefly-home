@@ -64,7 +64,6 @@ router.get('/', (req, res)=> {
 router.post('/validation', (req, res)=> {
   const username = req.body.username;
   const password = req.body.password;
-console.log(username + ' ' + password)
   User.where({username: username}).findOne((err, user)=> { // eslint-disable-line  complexity
     if (err)
       throw err;
@@ -86,9 +85,10 @@ console.log(username + ' ' + password)
     }
     else {
       // todo 401 why cannot work?
+      // todo return message '用户不存在'
       status = 200;
       error = true;
-      message = '用户不存在';
+      message = '';
     }
     // console.log('-------------------------validation--------------------------------status : ' + status);
 
