@@ -6,6 +6,10 @@ import {connect} from 'react-redux';
 import {requestHouseDetails} from '../actions/housedetails';
 import Header from './Header';
 import Footer from './Footer';
+import MonthSelect from './MonthSelect';
+import DaySelect from './DaySelect';
+import {Link} from 'react-router';
+
 
 export default class HouseDetails extends Component {
   constructor(props) {
@@ -31,7 +35,29 @@ export default class HouseDetails extends Component {
           </div>
           <img src={image} className="room1-picture"/>
           <div className="body-right">
-            <span>￥{price}/每晚</span>
+            <div className="day-price">
+              <div className="price">￥{price}</div>
+              <div className="per">每晚</div>
+              <div className="start">
+                <select onChange={this.handleChange.bind(this)} ref="startYear">
+                  <option>2015年</option>
+                  <option>2016年</option>
+                </select>
+                <MonthSelect onChange={this.handleChange.bind(this)} ref="startMonth"/>
+                <DaySelect onChange={this.handleChange.bind(this)} ref="startDay"/>
+              </div>
+              <div className="end">
+                <select onChange={this.handleChange.bind(this)} ref="endYear">
+                  <option>2015年</option>
+                  <option>2016年</option>
+                </select>
+                <MonthSelect onChange={this.handleChange.bind(this)} ref="endMonth"/>
+                <DaySelect onChange={this.handleChange.bind(this)} ref="endDay"/>
+              </div>
+              <div className="subscribe">
+                <button>立即预订 ￥</button>
+              </div>
+            </div>
           </div>
           {/*<div className="preview">
            <img src="images/room1.jpg" className="room" onClick={this.handleClick.bind(this)}/>

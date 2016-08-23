@@ -26,6 +26,18 @@ class SelectZone extends Component {
 
   render() {
     return (
+      <div className="col-sm-12">
+        <form>
+          <label className="col-sm-1">城市</label>
+          <select className="col-sm-1" value={this.props.city}
+                  onChange={this.handleChange.bind(this)} ref="citySelect">
+            <option value="">all</option>
+            <option value="北京">北京</option>
+            <option value="上海">上海</option>
+            <option value="成都">成都</option>
+          </select>
+        </form>
+      </div>
       <div>
         <div className="row">
           <form>

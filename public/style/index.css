@@ -96,6 +96,26 @@ a {
     text-decoration: none;
 }
 
+
+.price{
+    float: left;
+    font-size: 25px;
+    text-align: center;
+}
+
+.per{
+    float: right;
+    text-align: center;
+}
+
+.start{
+    width: 180px;
+}
+
+.end{
+    width: 180px;
+}
+
 .room1-picture {
     width: 660px;
     height: 435px;
@@ -112,8 +132,13 @@ a {
     cursor: pointer;
 }
 
-.body-right {
-    float: right;
+.day-price {
+    width: 240px;
+
+}
+
+.body-right{
+    float:right;
 }
 
 /*hompage*/

@@ -14,11 +14,22 @@ class HouseResource extends Component {
     super(props);
   }
 
-  render() {
+  componentDidMount() {
+    let {city} = this.props.params;
+    if (city !== undefined) {
+      this.props.requestHouseOfSelectedCity(city);
+    }
+  }
 
-    const {houseResource, requestHouseList} = this.props;
+  render() {
+    const {houseResource, requestHouseOfSelectedCity} = this.props;
+    let {city} = this.props.params;
 
     return (
+      <div>
+        <SelectZone select={requestHouseOfSelectedCity} city={city}/>
+        <br/><br/>
+        <HouseList houses={houseResource}/>
       <div className="houselist">
         <Header />
         <br/>
