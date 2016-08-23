@@ -30,7 +30,6 @@ router.get('/', (req, res)=> {
 });
 
 router.get('/:city', (req, res)=> {
-  console.log(req.params.city);
   House
     .where({city: req.params.city})
     .findOne((err, houses)=> {
