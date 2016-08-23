@@ -1,5 +1,5 @@
 body {
-    background-color: #d6e9c6;
+    background-color: #c1c9f8;
 }
 
 #all {
@@ -42,6 +42,7 @@ body {
 
 .page {
     background-repeat: no-repeat;
+    background-size: 100%;
     background-image: url("http://img02.tooopen.com/images/20160620/tooopen_sy_165702881727.jpg");
     height: 600px;
 }
