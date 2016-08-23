@@ -3,24 +3,11 @@
  */
 
 import supertest from 'supertest';
-import app from '../../../server/routers/houseDetail';
+import app from '../../../app';
 const request = supertest(app);
 
 
 describe('post', () => {
-  it('should return the status code', (done) => {
-    request
-      .get('/api/houseDetails/4')
-      .end((err, res) => {
-        if (err) {
-          done.fail(err);
-        } else {
-          expect(200).toEqual(res.statusCode);
-          done();
-        }
-      });
-  });
-
   it('should return house detail with name,price,type....', (done) => {
     let result = {
       _id: 4,
@@ -52,6 +39,4 @@ describe('post', () => {
         }
       });
   });
-
-
 });
