@@ -44,7 +44,7 @@ describe('get', function () {
       });
   });
 
-  fit('should return the information of specific city', (done)=> {
+  it('should return the information of specific city', (done)=> {
     const expectedCount = 9;
 
     const city = "北京";
