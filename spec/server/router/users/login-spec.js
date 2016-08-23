@@ -49,18 +49,18 @@ describe('login', () => {
   describe('username exist', () => {
     it('should access username', (done)=> {
       const status = 200;
-      isUsernameExist('lisi', status, true, done);
+      isUsernameExist('zhangsha', status, true, done);
     });
 
     it('should access login when password match', (done) => {
       const status = 200;
-      login('lisi', '12345', status, {error: false, message: ''}, done);
+      login('zhangsha', '123456', status, {error: false, message: ''}, done);
     });
     //todo modify statusCode to 401
     it('should reject login when password does not match', (done) => {
       // const status = 401;
       const status = 200;
-      login('lisi', 'xxxxx', status, {error: true, message: '密码错误'}, done);
+      login('zhangsha', 'xxxxx', status, {error: true, message: '密码错误'}, done);
     })
   });
 
@@ -74,7 +74,7 @@ describe('login', () => {
     it('should reject login', (done) => {
       // const status = 401;
       const status = 200;
-      login('xxxxx', '12345', status, {error: true, message: ''}, done);
+      login('xxxxx', '123456', status, {error: true, message: ''}, done);
     });
   });
 });
