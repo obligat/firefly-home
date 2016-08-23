@@ -14,7 +14,6 @@ router.post('/register', (req, res)=> {
     return (/^.{6,16}$/).test(password);
   };
 
-
   if (checkUsername(username) && checkPassword(password)) {
     User.where({username: username}).findOne((err, user) => {
       let status = 0;
