@@ -1,4 +1,4 @@
-export default {
+export default {  // eslint-disable
   User: [{
     username: 'zhangsan',
     password: '12345'

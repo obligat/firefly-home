@@ -20,15 +20,20 @@ router.post('/register', (req, res)=> {
       if (err) status = 500;
 
       if (user) {
-        status = 403;
-        return res.status(status).send({});
-
+        // todo fix this, client cannot receive res.body????
+        // old
+        // status = 403;
+        // return res.status(status).send({});
+        // can not work
+        // status = 401;
+        // return res.status(status).send({error: '用户已注册'});
+        return res.send({error: '用户已注册'});
       } else {
         new User({username: username, password: password})
           .save((err, result) => {   // eslint-disable-line  no-unused-vars
             if (err) status = 500;
             else status = 200;
-            return res.status(status).send({});
+            return res.status(status).send({error: ''});
           });
       }
     });
@@ -47,9 +52,10 @@ router.get('/', (req, res)=> {
         throw err;
       let status = 0;
       let exist = false;
+      // todo why 401 cannot work??
       user
         ? (status = 200, exist = true)
-        : (status = 401, exist = false);
+        : (status = 200, exist = false);
       // console.log('------------------------------check---------------------------status : ' + status);
       res.status(status).send({exist});
     });
@@ -58,7 +64,6 @@ router.get('/', (req, res)=> {
 router.post('/validation', (req, res)=> {
   const username = req.body.username;
   const password = req.body.password;
-
   User.where({username: username}).findOne((err, user)=> { // eslint-disable-line  complexity
     if (err)
       throw err;
@@ -72,15 +77,18 @@ router.post('/validation', (req, res)=> {
         status = 200;
         error = false;
       } else {
-        status = 401;
+        // todo 401 why cannot work?
+        status = 200;
         error = true;
         message = '密码错误';
       }
     }
     else {
-      status = 401;
+      // todo 401 why cannot work?
+      // todo return message '用户不存在'
+      status = 200;
       error = true;
-      message = '用户不存在';
+      message = '';
     }
     // console.log('-------------------------validation--------------------------------status : ' + status);
 

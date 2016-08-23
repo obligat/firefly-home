@@ -6,11 +6,20 @@ import supertest from 'supertest';
 import app from '../app';
 const request = supertest(app);
 
-function callback(err, res, done){
-  if(err, res){
+function callback(err, res, done, expectedCount) {
+  if (err) {
     done.fail(err);
-  }else{
+  } else {
     expect(res.body.length).toEqual(expectedCount);
+    done();
+  }
+}
+
+function callbackForError(err, res, done, house) {
+  if (err) {
+    done.fail(err);
+  } else {
+    expect(res.body).not.toEqual(house);
     done();
   }
 }
@@ -22,28 +31,34 @@ describe('get', function () {
     request
       .get('/api/houses')
       .end((err, res)=> {
-        if (err) {
-          done.fail(err);
-        } else {
-          expect(res.body.length).toEqual(expectedCount);
-          done();
-        }
+        callback(err, res, done, expectedCount);
       });
   });
 
-  it('should return information of houses', (done)=> {
+  it('should return no information of houses', (done)=> {
     let house = null;
     request
       .get('/api/houses')
       .end((err, res)=> {
-        if (err) {
-          done.fail(err);
-        } else {
-          expect(res.body).not.toEqual(house);
-          done();
-        }
+        callbackForError(err, res, done, house);
       });
   });
 
+  it('should return the information of specific city', (done)=> {
+    const expectedCount = 9;
+
+    const city = "北京";
+    request.get(encodeURI(`/api/houses/${city}`))
+      .end((err, res) => {
+        if (err) {
+          done.fail(err);
+        }
+        else {
+          expect(res.body.length).toEqual(expectedCount)
+          done();
+
+        }
+      });
+  });
 });
 

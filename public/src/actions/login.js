@@ -29,10 +29,8 @@ export const checkPassword = (username, password)=>{
       .end((err,res)=>{
 
         if(err){
-          console.log(err);
           throw err;
         }else {
-          console.log(res.body)
           dispatch(isCorrectPassword(res.body));
         }
       });

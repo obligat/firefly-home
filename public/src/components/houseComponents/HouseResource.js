@@ -37,7 +37,7 @@ const mapDispatchToProps = (dispatch)=> {
     requestHouseOfSelectedCity: (city)=> {
       dispatch(requestHouseOfSelectedCity(city));
     }
-  }
+  };
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(HouseResource);
