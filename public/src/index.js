@@ -14,6 +14,7 @@ import LoginComponent from './components/LoginComponent';
 import HouseResource from './components/houseComponents/HouseResource';
 import HouseDetails from './components/HouseDetails';
 import Homepage from './components/Homepage';
+import UserGuide from './components/houseComponents/UserGuide';
 import {requestHouseList} from './actions/houselist';
 
 
@@ -28,12 +29,13 @@ render(
   <Provider store={store}>
     <Router>
       <Route path="/" component={App}>
-        <IndexRoute component={LoginComponent}/>
+        <IndexRoute component={Homepage}/>
         <Route path="/register" component={Register}/>
         <Route path="/login" component={LoginComponent}/>
         <Route path="/houseResource" component={HouseResource}/>
         <Route path="/houseDetail/:id" component={HouseDetails}/>
         <Route path="/homepage" component={Homepage}/>
+        <Route path="/userGuide" components={UserGuide}/>
       </Route>
     </Router>
   </Provider>,
