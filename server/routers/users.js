@@ -52,9 +52,10 @@ router.get('/', (req, res)=> {
         throw err;
       let status = 0;
       let exist = false;
+      // todo why 401 cannot work??
       user
         ? (status = 200, exist = true)
-        : (status = 401, exist = false);
+        : (status = 200, exist = false);
       // console.log('------------------------------check---------------------------status : ' + status);
       res.status(status).send({exist});
     });
@@ -63,7 +64,7 @@ router.get('/', (req, res)=> {
 router.post('/validation', (req, res)=> {
   const username = req.body.username;
   const password = req.body.password;
-
+console.log(username + ' ' + password)
   User.where({username: username}).findOne((err, user)=> { // eslint-disable-line  complexity
     if (err)
       throw err;
@@ -77,13 +78,15 @@ router.post('/validation', (req, res)=> {
         status = 200;
         error = false;
       } else {
-        status = 401;
+        // todo 401 why cannot work?
+        status = 200;
         error = true;
         message = '密码错误';
       }
     }
     else {
-      status = 401;
+      // todo 401 why cannot work?
+      status = 200;
       error = true;
       message = '用户不存在';
     }
