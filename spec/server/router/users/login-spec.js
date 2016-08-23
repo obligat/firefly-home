@@ -22,8 +22,8 @@ function isUsernameExist(username, status, exist, done) {
     .expect(status)
     .expect({exist: exist})
     .end((err, res) => {
-      callback(err, done)
-    })
+      callback(err, done);
+    });
 }
 
 function login(username, password, status, loginMessage, done) {
