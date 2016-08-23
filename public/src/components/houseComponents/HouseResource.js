@@ -14,13 +14,6 @@ class HouseResource extends Component {
     super(props);
   }
 
-  componentDidMount() {
-    let {city} = this.props.params;
-    if (city !== undefined) {
-      this.props.requestHouseOfSelectedCity(city);
-    }
-  }
-
   render() {
     const {houseResource, requestHouseOfSelectedCity} = this.props;
     let {city} = this.props.params;
@@ -56,8 +49,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch)=> {
   return {
-    requestHouseList: (city, sort)=> {
-      dispatch(requestHouseList(city, sort));
+    requestHouseOfSelectedCity: (city)=> {
+      dispatch(requestHouseOfSelectedCity(city));
     }
   };
 };
