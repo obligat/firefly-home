@@ -4,6 +4,9 @@
 import React, {Component} from 'react';//eslint-disable-line no-unused-vars
 import {connect} from 'react-redux';
 import {requestHouseDetails} from '../actions/housedetails';
+import MonthSelect from './MonthSelect';
+import DaySelect from './DaySelect';
+import {Link} from 'react-router';
 
 
 export default class HouseDetails extends Component {
@@ -16,21 +19,65 @@ export default class HouseDetails extends Component {
     this.props.requestHouseDetails(id);
   }
 
+  // handleChange() {
+  //   let startYear = this.refs.startYear.value;
+  //   let startMonth = this.refs.startMonth.value;
+  //   let startDay = this.refs.startDay.value;
+  //   let endYear = this.refs.endYear.value;
+  //   let endMonth = this.refs.endMonth.value;
+  //   let endDay = this.refs.endDay.value;
+  //
+  //   // this.props.checkTime(startYear, startMonth, startDay);
+  //   // this.props.leaveTime(endYear, endMonth, endDay);
+  //
+  // }
+
+
   render() {
     const {name, price, image, city, address, houseDescription, situation} = this.props.houseDetails;
 
     return (
       <div>
-        <Header/>
-
+        {/*<div className="header">*/}
+        {/*<div className="left">*/}
+        {/*<span><strong>萤火虫 </strong>居住自由主义</span>*/}
+        {/*</div>*/}
+        {/*<div className="right">*/}
+        {/*<span><a href="#">登录</a></span>*/}
+        {/*<span>短租指南</span>*/}
+        {/*<div className="issue-room"><a href="#">免费发布房间</a></div>*/}
+        {/*</div>*/}
+        {/*</div>*/}
         <div>
           <span className="title-span">{name}</span><br/>
-          <div>
-            <a href="#">萤火虫</a><span>></span><a href="#">{city}></a>{address}
-          </div>
+           <div>
+           <a href = "#" >萤火虫</a><span>></span><a href="#">{city}></a>{address}
+           </div>
           <img src={image} className="room1-picture"/>
           <div className="body-right">
-            <span>￥{price}/每晚</span>
+            <div className="day-price">
+              <div className="price">￥{price}</div>
+              <div className="per">每晚</div>
+              <div className="start">
+                <select onChange={this.handleChange.bind(this)} ref="startYear">
+                  <option>2015年</option>
+                  <option>2016年</option>
+                </select>
+                <MonthSelect onChange={this.handleChange.bind(this)} ref="startMonth"/>
+                <DaySelect onChange={this.handleChange.bind(this)} ref="startDay"/>
+              </div>
+              <div className="end">
+                <select onChange={this.handleChange.bind(this)} ref="endYear">
+                  <option>2015年</option>
+                  <option>2016年</option>
+                </select>
+                <MonthSelect onChange={this.handleChange.bind(this)} ref="endMonth"/>
+                <DaySelect onChange={this.handleChange.bind(this)} ref="endDay"/>
+              </div>
+              <div className="subscribe">
+                <button>立即预订 ￥</button>
+              </div>
+            </div>
           </div>
           {/*<div className="preview">
            <img src="images/room1.jpg" className="room" onClick={this.handleClick.bind(this)}/>
