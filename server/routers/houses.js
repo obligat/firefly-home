@@ -16,7 +16,7 @@ function returnValue(houses) {
       city: house.city,
       type: house.type,
       image: house.image
-    }
+    };
   });
 }
 
