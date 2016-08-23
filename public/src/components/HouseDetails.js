@@ -4,7 +4,8 @@
 import React, {Component} from 'react';//eslint-disable-line no-unused-vars
 import {connect} from 'react-redux';
 import {requestHouseDetails} from '../actions/housedetails';
-
+import Header from './Header';
+import Footer from './Footer';
 
 export default class HouseDetails extends Component {
   constructor(props) {
@@ -22,7 +23,7 @@ export default class HouseDetails extends Component {
     return (
       <div>
         <Header/>
-
+        <br />
         <div>
           <span className="title-span">{name}</span><br/>
           <div>
@@ -50,6 +51,8 @@ export default class HouseDetails extends Component {
             {situation}
           </div>
         </div>
+        <br />
+        <Footer />
       </div>
     );
   }
