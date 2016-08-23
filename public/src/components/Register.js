@@ -2,6 +2,7 @@ import React, {Component} from 'react';//eslint-disable-line no-unused-vars
 import {connect} from 'react-redux';
 import {createUser} from  '../actions/register';
 import {withRouter} from 'react-router';
+import {clearState} from '../actions/register';
 
 class Register extends Component {
   constructor(props) {
@@ -15,25 +16,8 @@ class Register extends Component {
 
   componentWillUpdate(nextProps) {
     if (nextProps.createUserResult === '') {
+      this.props.clearState();
       this.props.router.push('/login');
-    }
-  }
-
-  handleNameKeyPress(e) {
-    if (e.charCode === 13) {
-      this.checkUsername();
-    }
-  }
-
-  handlePwdKeyPress(e) {
-    if (e.charCode === 13) {
-      this.checkPassword();
-    }
-  }
-
-  handleConfirmKeyPress(e) {
-    if (e.charCode === 13) {
-      this.checkPasswordEqual();
     }
   }
 
@@ -67,10 +51,20 @@ class Register extends Component {
     }
   }
 
-  handleFocus() {
+  handleNameFocus() {
     this.setState({
-      nameError: '',
-      pwdError: '',
+      nameError: ''
+    });
+  }
+
+  handlePasswordFocus() {
+    this.setState({
+      pwdError: ''
+    });
+  }
+
+  handleConfirmFocus() {
+    this.setState({
       confirmError: ''
     });
   }
@@ -97,29 +91,32 @@ class Register extends Component {
                 <label for="inputEmail3" className="col-sm-2 control-label">Username</label>
                 <div className="col-sm-10">
                   <input type="email" className="form-control" id="inputEmail3" placeholder="Username" ref='username'
-                         onFocus={this.handleFocus.bind(this)} onKeyPress={this.handleNameKeyPress.bind(this)}/>
-                  <span>{this.state.nameError}</span>
+                         onFocus={this.handleNameFocus.bind(this)} onBlur={this.checkUsername.bind(this)}/>
+                  <span className="error-tip">{this.state.nameError}</span>
                 </div>
               </div>
               <div className="form-group">
                 <label for="inputPassword3" className="col-sm-2 control-label">Password</label>
                 <div className="col-sm-10">
-                  <input type="password" className="form-control" id="inputPassword3" placeholder="Password" onKeyPress={this.handlePwdKeyPress.bind(this)}
-                         onFocus={this.handleFocus.bind(this)} ref="password"/>
-                  <span>{this.state.pwdError}</span>
+                  <input type="password" className="form-control" id="inputPassword3" placeholder="Password"
+                         onBlur={this.checkPassword.bind(this)}
+                         onFocus={this.handlePasswordFocus.bind(this)} ref="password"/>
+                  <span className="error-tip">{this.state.pwdError}</span>
                 </div>
               </div>
               <div className="form-group">
                 <label for="inputPassword3" className="col-sm-2 control-label">Password</label>
                 <div className="col-sm-10">
-                  <input type="password" className="form-control" id="inputPassword3" onKeyPress={this.handleConfirmKeyPress.bind(this)}
-                         onFocus={this.handleFocus.bind(this)} placeholder="Please Input Password Again" ref='confirmPassword'/>
-                  <span>{this.state.confirmError}</span>
+                  <input type="password" className="form-control" id="inputPassword3"
+                         onBlur={this.checkPasswordEqual.bind(this)}
+                         onFocus={this.handleConfirmFocus.bind(this)} placeholder="Please Input Password Again"
+                         ref='confirmPassword'/>
+                  <span className="error-tip">{this.state.confirmError}</span>
                 </div>
               </div>
               <div className="form-group">
                 <div className="col-sm-offset-2 col-sm-10">
-                  <span>{createUserResult}</span><br/>
+                  <span className="error-tip">{createUserResult}</span><br/>
                   <button
                     type="button" onClick={this.handleClick.bind(this)}>Sign in
                   </button>
@@ -138,12 +135,16 @@ const mapStateToProps = (state)=> {
     createUserResult: state.createUserResult
   };
 };
+
 const mapDispatchToProps = (dispatch)=> {
   return {
     createUser: (username, password)=> {
       dispatch(createUser(username, password));
     },
+    clearState: () => {
+      dispatch(clearState());
+    }
   };
 };
-export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Register));
 
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Register));

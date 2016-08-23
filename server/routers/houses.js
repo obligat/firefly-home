@@ -10,6 +10,7 @@ let router = express.Router();
 function returnValue(houses) {
   return houses.map((house)=> {
     return {
+      id: house._id,
       name: house.name,
       price: house.price,
       address: house.address,

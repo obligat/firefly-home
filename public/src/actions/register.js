@@ -5,6 +5,10 @@ export const addUser = (error)=>({
   message: error
 });
 
+export const clearState = () => ({
+  type: 'RESET_REGISTER'
+});
+
 export const createUser = (username, password)=> {
   return (dispatch)=> {
     request

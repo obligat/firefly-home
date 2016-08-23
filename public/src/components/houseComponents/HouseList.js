@@ -12,7 +12,7 @@ class HouseList extends Component {
         {
 
           houses.map((v, k)=>(
-            <HouseItem key={k} name={v.name} type={v.type}
+            <HouseItem id={v.id} key={k} name={v.name} type={v.type}
                        price={v.price} address={v.address}
                        city={v.city} image={v.image}/>
           ))

@@ -1,3 +1,4 @@
+'use strict';
 import express from  'express';
 import User from '../models/User';
 
@@ -14,34 +15,36 @@ router.post('/register', (req, res)=> {
   };
 
   if (checkUsername(username) && checkPassword(password)) {
+    User.where({username: username}).findOne((err, user) => {
+      let status = 0;
+      if (err) status = 500;
 
-    User.where({username: req.body.username}).findOne((err, user) => {
-
-      if (err) {
-        throw err;
+      if (user) {
+        // todo fix this, client cannot receive res.body????
+        // old
+        // status = 403;
+        // return res.status(status).send({});
+        // can not work
+        // status = 401;
+        // return res.status(status).send({error: '用户已注册'});
+        return res.send({error: '用户已注册'});
       } else {
-        user ?
-          res.send({error: '用户名已注册'}) :
-          new User({
-            username: req.body.username,
-            password: req.body.password
-          }
-          ).save((err, user)=> { // eslint-disable-line no-unused-vars
-            if (err) {
-              throw  err;
-            } else {
-              res.send({error: ''});
-            }
+        new User({username: username, password: password})
+          .save((err, result) => {   // eslint-disable-line  no-unused-vars
+            if (err) status = 500;
+            else status = 200;
+            return res.status(status).send({error: ''});
           });
       }
     });
+
   }
+
 
 });
 
 
 router.get('/', (req, res)=> {
-
   User
     .where({username: req.query.username})
     .findOne((err, user)=> {
@@ -49,21 +52,18 @@ router.get('/', (req, res)=> {
         throw err;
       let status = 0;
       let exist = false;
+      // todo why 401 cannot work??
       user
         ? (status = 200, exist = true)
-        : (status = 403, exist = false);
+        : (status = 200, exist = false);
+      // console.log('------------------------------check---------------------------status : ' + status);
       res.status(status).send({exist});
     });
 });
 
-router.get('/validation', (req, res)=> {
-  const username = req.query.username;
-  const password = req.query.password;
-
-  if (!(username && password)) {
-    return res.status(403).send({error: true, message: '用户名及密码不能为空'});
-  }
-
+router.post('/validation', (req, res)=> {
+  const username = req.body.username;
+  const password = req.body.password;
   User.where({username: username}).findOne((err, user)=> { // eslint-disable-line  complexity
     if (err)
       throw err;
@@ -77,18 +77,22 @@ router.get('/validation', (req, res)=> {
         status = 200;
         error = false;
       } else {
-        status = 403;
+        // todo 401 why cannot work?
+        status = 200;
         error = true;
         message = '密码错误';
       }
     }
     else {
-      status = 403;
+      // todo 401 why cannot work?
+      // todo return message '用户不存在'
+      status = 200;
       error = true;
-      message = '用户不存在';
+      message = '';
     }
+    // console.log('-------------------------validation--------------------------------status : ' + status);
 
-    res.status(status).send({error: error, message: message});
+    return res.status(status).send({error: error, message: message});
   });
 });
 

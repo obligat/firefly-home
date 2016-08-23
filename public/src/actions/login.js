@@ -23,12 +23,13 @@ export const checkPassword = (username, password)=>{
   return (dispatch)=>{
     
     superAgent
-      .get('/api/users/validation')
-      .query({username:username,password:password})
+      .post('/api/users/validation')
+      .type('form')
+      .send({username:username,password:password})
       .end((err,res)=>{
 
         if(err){
-          //console.log(err);
+          throw err;
         }else {
           dispatch(isCorrectPassword(res.body));
         }
