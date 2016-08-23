@@ -18,7 +18,7 @@ class HouseResource extends Component {
 
     return (
       <div>
-        <SelectZone select={requestHouseOfSelectedCity}/>
+        <SelectZone select={requestHouseOfSelectedCity} initialCity={houseResource.city}/>
         <br/><br/>
         <HouseList houses={houseResource}/>
       </div>
@@ -28,7 +28,7 @@ class HouseResource extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    houseResource: state.houseResource,
+    houseResource: state.houseResource
   };
 };
 

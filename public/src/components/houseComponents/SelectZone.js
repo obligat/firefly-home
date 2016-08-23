@@ -6,20 +6,13 @@ import React, {Component} from 'react';//eslint-disable-line no-unused-vars
 class SelectZone extends Component {
   constructor(props, selectValue) {//eslint-disable-line no-unused-vars
     super(props);
-    this.state = {
-      selectValue: 'all'
-    };
   }
 
-  handleChange(event) {
-    this.setState({
-      selectValue: event.target.value
-    });
-
+  handleChange() {
     let {select} = this.props;
-    let city = this.refs.citySelect.value;
+    let cityOfSelect = this.refs.citySelect.value;
 
-    select(city);
+    select(cityOfSelect);
   }
 
   render() {
@@ -27,7 +20,7 @@ class SelectZone extends Component {
       <div className="col-sm-12">
         <form>
           <label className="col-sm-1">城市</label>
-          <select className="col-sm-1" value={this.state.selectValue}
+          <select className="col-sm-1" value={this.props.initialCity}
                   onChange={this.handleChange.bind(this)} ref="citySelect">
             <option value="">all</option>
             <option value="北京">北京</option>

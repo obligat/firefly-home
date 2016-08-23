@@ -31,6 +31,7 @@ const houseList = (houses)=> {
 const houseOfSelectedCity = (houses)=> {
   return {
     type: 'HOUSE_OF_SELECTED_CITY',
-    data: houses
+    data: houses,
+
   };
 };
