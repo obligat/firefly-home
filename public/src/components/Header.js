@@ -2,6 +2,7 @@
  * Created by tong on 16-8-23.
  */
 import React, {Component} from 'react';
+import {Link} from  'react-router';
 
 export default class Header extends Component {
   render() {
