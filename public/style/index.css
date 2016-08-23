@@ -100,3 +100,97 @@ a {
 .body-right {
     float: right;
 }
+
+/*hompage*/
+.header {
+    width: 100%;
+    height: 60px;
+}
+
+.span1 {
+    font-size: 30px;
+    font-style: oblique;
+    color: #00b3ee;
+}
+
+.span2 {
+    font-size: 22px;
+}
+
+.left {
+    float: left;
+    width: 700px;
+}
+
+.right {
+    float: right;
+}
+
+#linkHomepage1, #linkHomepage2 ,#UserGuide{
+    float: left;
+    margin-right: 50px;
+    font-size: 18px;
+}
+
+.information {
+    float: left;
+    margin-left: 450px;
+}
+
+#p1 {
+    font-size: 50px;
+    color: #666666;
+    text-algin: center;
+}
+
+#p2 {
+    font-size: 25px;
+    color: #666666;
+    text-algin: center;
+}
+
+.rent {
+    float: right;
+    margin-right: 20px;
+    padding-top: 30px;
+}
+
+.houses {
+    align-content: center;
+    margin-bottom: 100px;
+}
+
+tr {
+    padding: 10px;
+}
+
+td {
+    padding: 10px;
+}
+
+tr img {
+    width: 340px;
+    height: 190px;
+}
+
+tr img:hover {
+    border: 5px solid lightsteelblue;
+}
+
+.tail {
+    width: 100%;
+    height: 100px;
+    background-color: #9da0a4;
+    text-align: center;
+}
+
+.btn {
+    padding: 15px 50px;
+}
+
+.tail{
+    background-color: #bbbbbb;
+    width: 1140px;
+    height: 50px;
+}
+
