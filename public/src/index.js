@@ -14,7 +14,7 @@ import LoginComponent from './components/LoginComponent';
 import HouseResource from './components/houseComponents/HouseResource';
 import HouseDetails from './components/HouseDetails';
 import Homepage from './components/Homepage';
-import UserGuide from './components/houseComponents/UserGuide';
+import UserGuide from './components/UserGuide';
 import {requestHouseList} from './actions/houselist';
 
 
