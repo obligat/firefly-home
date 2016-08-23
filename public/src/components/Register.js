@@ -91,7 +91,7 @@ class Register extends Component {
                 <div className="col-sm-10">
                   <input type="email" className="form-control" id="inputEmail3" placeholder="Username" ref='username'
                          onFocus={this.handleNameFocus.bind(this)} onBlur={this.checkUsername.bind(this)}/>
-                  <span>{this.state.nameError}</span>
+                  <span className="error-tip">{this.state.nameError}</span>
                 </div>
               </div>
               <div className="form-group">
@@ -99,7 +99,7 @@ class Register extends Component {
                 <div className="col-sm-10">
                   <input type="password" className="form-control" id="inputPassword3" placeholder="Password" onBlur={this.checkPassword.bind(this)}
                          onFocus={this.handlePasswordFocus.bind(this)} ref="password"/>
-                  <span>{this.state.pwdError}</span>
+                  <span className="error-tip">{this.state.pwdError}</span>
                 </div>
               </div>
               <div className="form-group">
@@ -107,12 +107,12 @@ class Register extends Component {
                 <div className="col-sm-10">
                   <input type="password" className="form-control" id="inputPassword3" onBlur={this.checkPasswordEqual.bind(this)}
                          onFocus={this.handleConfirmFocus.bind(this)} placeholder="Please Input Password Again" ref='confirmPassword'/>
-                  <span>{this.state.confirmError}</span>
+                  <span className="error-tip">{this.state.confirmError}</span>
                 </div>
               </div>
               <div className="form-group">
                 <div className="col-sm-offset-2 col-sm-10">
-                  <span>{createUserResult}</span><br/>
+                  <span className="error-tip">{createUserResult}</span><br/>
                   <button
                     type="button" onClick={this.handleClick.bind(this)}>Sign in
                   </button>
