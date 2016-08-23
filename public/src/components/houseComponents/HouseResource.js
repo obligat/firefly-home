@@ -6,7 +6,8 @@ import {connect} from 'react-redux';
 import HouseList from './HouseList';
 import SelectZone from './SelectZone';
 import {requestHouseOfSelectedCity} from '../../actions/houselist';
-
+import Header from '../Header';
+import Footer from '../Footer';
 
 class HouseResource extends Component {
   constructor(props) {
@@ -18,9 +19,13 @@ class HouseResource extends Component {
 
     return (
       <div>
-        <SelectZone select={requestHouseOfSelectedCity} initialCity={houseResource.city}/>
-        <br/><br/>
-        <HouseList houses={houseResource}/>
+        <Header />
+        <br/>
+        <div>
+          <SelectZone select={requestHouseOfSelectedCity} initialCity={houseResource.city}/>
+          <br/><br/>
+          <HouseList houses={houseResource}/>
+        </div>
       </div>
     );
   }

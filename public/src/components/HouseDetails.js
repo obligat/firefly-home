@@ -21,21 +21,13 @@ export default class HouseDetails extends Component {
 
     return (
       <div>
-        <div className="header">
-          <div className="left">
-            <span><strong>萤火虫 </strong>居住自由主义</span>
-          </div>
-          <div className="right">
-            <span><a href="#">登录</a></span>
-            <span>短租指南</span>
-            <div className="issue-room"><a href="#">免费发布房间</a></div>
-          </div>
-        </div>
+        <Header/>
+
         <div>
           <span className="title-span">{name}</span><br/>
-           <div>
-           <a href = "#" >萤火虫</a><span>></span><a href="#">{city}></a>{address}
-           </div>
+          <div>
+            <a href="#">萤火虫</a><span>></span><a href="#">{city}></a>{address}
+          </div>
           <img src={image} className="room1-picture"/>
           <div className="body-right">
             <span>￥{price}/每晚</span>

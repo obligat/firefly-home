@@ -3,6 +3,8 @@ import {connect} from 'react-redux';
 import {createUser} from  '../actions/register';
 import {withRouter} from 'react-router';
 import {clearState} from '../actions/register';
+import Header from './Header';
+import Footer from './Footer';
 
 class Register extends Component {
   constructor(props) {
@@ -82,49 +84,54 @@ class Register extends Component {
     const createUserResult = this.props.createUserResult;
 
     return (
-      <div className="page hidden-sm">
-        <div className="data-toggle register">
-          <div className="title">Welcome To Firefly Home</div>
-          <div>
-            <form className="form-horizontal">
-              <div className="form-group">
-                <label for="inputEmail3" className="col-sm-2 control-label">Username</label>
-                <div className="col-sm-10">
-                  <input type="email" className="form-control" id="inputEmail3" placeholder="Username" ref='username'
-                         onFocus={this.handleNameFocus.bind(this)} onBlur={this.checkUsername.bind(this)}/>
-                  <span className="error-tip">{this.state.nameError}</span>
+      <div>
+        <Header />
+        <div className="page hidden-sm">
+          <div className="data-toggle register">
+            <div className="title">Welcome To Firefly Home</div>
+            <div>
+              <form className="form-horizontal">
+                <div className="form-group">
+                  <label for="inputEmail3" className="col-sm-2 control-label">Username</label>
+                  <div className="col-sm-10">
+                    <input type="email" className="form-control" id="inputEmail3" placeholder="Username" ref='username'
+                           onFocus={this.handleNameFocus.bind(this)} onBlur={this.checkUsername.bind(this)}/>
+                    <span className="error-tip">{this.state.nameError}</span>
+                  </div>
                 </div>
-              </div>
-              <div className="form-group">
-                <label for="inputPassword3" className="col-sm-2 control-label">Password</label>
-                <div className="col-sm-10">
-                  <input type="password" className="form-control" id="inputPassword3" placeholder="Password"
-                         onBlur={this.checkPassword.bind(this)}
-                         onFocus={this.handlePasswordFocus.bind(this)} ref="password"/>
-                  <span className="error-tip">{this.state.pwdError}</span>
+                <div className="form-group">
+                  <label for="inputPassword3" className="col-sm-2 control-label">Password</label>
+                  <div className="col-sm-10">
+                    <input type="password" className="form-control" id="inputPassword3" placeholder="Password"
+                           onBlur={this.checkPassword.bind(this)}
+                           onFocus={this.handlePasswordFocus.bind(this)} ref="password"/>
+                    <span className="error-tip">{this.state.pwdError}</span>
+                  </div>
                 </div>
-              </div>
-              <div className="form-group">
-                <label for="inputPassword3" className="col-sm-2 control-label">Password</label>
-                <div className="col-sm-10">
-                  <input type="password" className="form-control" id="inputPassword3"
-                         onBlur={this.checkPasswordEqual.bind(this)}
-                         onFocus={this.handleConfirmFocus.bind(this)} placeholder="Please Input Password Again"
-                         ref='confirmPassword'/>
-                  <span className="error-tip">{this.state.confirmError}</span>
+                <div className="form-group">
+                  <label for="inputPassword3" className="col-sm-2 control-label">Password</label>
+                  <div className="col-sm-10">
+                    <input type="password" className="form-control" id="inputPassword3"
+                           onBlur={this.checkPasswordEqual.bind(this)}
+                           onFocus={this.handleConfirmFocus.bind(this)} placeholder="Please Input Password Again"
+                           ref='confirmPassword'/>
+                    <span className="error-tip">{this.state.confirmError}</span>
+                  </div>
                 </div>
-              </div>
-              <div className="form-group">
-                <div className="col-sm-offset-2 col-sm-10">
-                  <span className="error-tip">{createUserResult}</span><br/>
-                  <button
-                    type="button" onClick={this.handleClick.bind(this)}>Sign in
-                  </button>
+                <div className="form-group">
+                  <div className="col-sm-offset-2 col-sm-10">
+                    <span className="error-tip">{createUserResult}</span><br/>
+                    <button
+                      type="button" onClick={this.handleClick.bind(this)}>Sign in
+                    </button>
+                  </div>
                 </div>
-              </div>
-            </form>
+              </form>
+            </div>
           </div>
         </div>
+
+        <Footer />
       </div>
     );
   }
