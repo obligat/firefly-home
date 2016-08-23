@@ -20,15 +20,20 @@ router.post('/register', (req, res)=> {
       if (err) status = 500;
 
       if (user) {
-        status = 403;
-        return res.status(status).send({});
-
+        // todo fix this, client cannot receive res.body????
+        // old
+        // status = 403;
+        // return res.status(status).send({});
+        // can not work
+        // status = 401;
+        // return res.status(status).send({error: '用户已注册'});
+        return res.send({error: '用户已注册'});
       } else {
         new User({username: username, password: password})
           .save((err, result) => {   // eslint-disable-line  no-unused-vars
             if (err) status = 500;
             else status = 200;
-            return res.status(status).send({});
+            return res.status(status).send({error: ''});
           });
       }
     });
