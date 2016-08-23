@@ -75,7 +75,7 @@ describe('register', () => {
   });
 
   it('should forbid user register when username is already existed', (done) => {
-    let username = 'zhangsan';
+    let username = 'zhangsha';
     let password = '1234567';
     // todo fix 403 vs 200
     request

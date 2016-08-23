@@ -1,13 +1,13 @@
 export default  [{
-  username: 'zhangsan',
-  password: '12345'
+  username: 'zhangsha',
+  password: '123456'
 }, {
-  username: 'lisi',
-  password: '12345'
+  username: 'fucongcong',
+  password: '123456'
 }, {
-  username: 'wangwu',
-  password: '12345'
+  username: 'tongyang',
+  password: '123456'
 }, {
-  username: 'haha',
-  password: '12345'
+  username: 'shiyue',
+  password: '123456'
 }];

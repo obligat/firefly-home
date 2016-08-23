@@ -1,3 +1,7 @@
+body {
+    background-color: #d6e9c6;
+}
+
 #all {
     margin: 15% 30%;
     border: 1px solid #4cae4c;
@@ -18,10 +22,13 @@
     margin-left: 350px;
 }
 
-
-.register{
-    width:480px;
+.register {
+    width: 480px;
     margin: 0 auto;
+}
+
+.error-tip {
+    color: red;
 }
 
 .title {
@@ -33,24 +40,23 @@
     font-size: 37px;
 }
 
-.page{
+.page {
     background-repeat: no-repeat;
     background-image: url("http://img02.tooopen.com/images/20160620/tooopen_sy_165702881727.jpg");
     height: 600px;
 }
 
-
-.header{
+.header {
     height: 55px;
     background-color: #e7c3c3;
     line-height: 55px;
 }
 
-.right{
+.right {
     float: right;
 }
 
-.left{
+.left {
     float: left;
 }
 
@@ -63,34 +69,34 @@
     margin: auto;
 }
 
-.title-span{
+.title-span {
     font-size: 24px;
 }
 
-a:hover{
+a:hover {
     text-decoration: none;
 }
 
-a{
+a {
     text-decoration: none;
 }
 
-.room1-picture{
+.room1-picture {
     width: 660px;
     height: 435px;
 }
 
-
-.preview{
+.preview {
     height: 200px;
-    width:720px;
+    width: 720px;
 }
-.room{
+
+.room {
     width: 110px;
     height: 90px;
     cursor: pointer;
 }
 
-.body-right{
+.body-right {
     float: right;
 }

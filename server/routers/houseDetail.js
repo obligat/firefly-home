@@ -13,7 +13,7 @@ router.get('/:id', (req, res) => {
       if(err){
         return res.sendStatus(500);
       }else{
-        res.status(200).send(house);
+        res.send(house);
       }
     });
 });
