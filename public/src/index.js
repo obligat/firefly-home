@@ -16,7 +16,6 @@ import HouseDetails from './components/HouseDetails';
 import Homepage from './components/Homepage';
 import {requestHouseList} from './actions/houselist';
 
-
 const store = createStore(
   rootReducer,
   applyMiddleware(thunkMiddleware)
