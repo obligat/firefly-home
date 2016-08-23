@@ -33,6 +33,7 @@ render(
         <Route path="/login" component={LoginComponent}/>
         <Route path="/houseResource" component={HouseResource}/>
         <Route path="/houseDetail/:id" component={HouseDetails}/>
+        <Route path="/houseResource/:city" component={HouseResource}/>
         <Route path="/homepage" component={Homepage}/>
         <Route path="/userGuide" components={UserGuide}/>
       </Route>
