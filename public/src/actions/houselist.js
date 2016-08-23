@@ -17,8 +17,8 @@ export const requestHouseOfSelectedCity = (city)=> {
     request.get(`/api/houses/${city}`)
       .end((err, res)=> {
         dispatch(houseOfSelectedCity(res.body));
-      })
-  }
+      });
+  };
 };
 
 const houseList = (houses)=> {

@@ -4,11 +4,11 @@
 import React, {Component} from 'react';//eslint-disable-line no-unused-vars
 
 class SelectZone extends Component {
-  constructor(props, selectValue) {
+  constructor(props, selectValue) {//eslint-disable-line no-unused-vars
     super(props);
     this.state = {
-      selectValue: "all"
-    }
+      selectValue: 'all'
+    };
   }
 
   handleChange(event) {
@@ -36,7 +36,7 @@ class SelectZone extends Component {
           </select>
         </form>
       </div>
-    )
+    );
   }
 }
 
