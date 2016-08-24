@@ -22,7 +22,7 @@ class HouseResource extends Component {
         <Header />
         <br/>
         <div>
-          <SelectZone select={requestHouseOfSelectedCity} initialCity={houseResource.city}/>
+          <SelectZone select={requestHouseOfSelectedCity}/>
           <br/><br/>
           <HouseList houses={houseResource}/>
         </div>
