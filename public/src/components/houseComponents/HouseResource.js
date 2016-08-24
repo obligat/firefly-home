@@ -5,7 +5,7 @@ import React, {Component} from 'react';//eslint-disable-line no-unused-vars
 import {connect} from 'react-redux';
 import HouseList from './HouseList';
 import SelectZone from './SelectZone';
-import {requestHouseOfSelectedCity} from '../../actions/houselist';
+import {requestHouseOfSelectedCity, requestSortedHouse} from '../../actions/houselist';
 import Header from '../Header';
 import Footer from '../Footer';
 
@@ -15,14 +15,14 @@ class HouseResource extends Component {
   }
 
   render() {
-    const {houseResource, requestHouseOfSelectedCity} = this.props;
+    const {houseResource, requestHouseOfSelectedCity, requestSortedHouse} = this.props;
 
     return (
       <div>
         <Header />
         <br/>
         <div>
-          <SelectZone select={requestHouseOfSelectedCity}/>
+          <SelectZone select={requestHouseOfSelectedCity} sort={requestSortedHouse}/>
           <br/><br/>
           <HouseList houses={houseResource}/>
         </div>
@@ -41,6 +41,9 @@ const mapDispatchToProps = (dispatch)=> {
   return {
     requestHouseOfSelectedCity: (city)=> {
       dispatch(requestHouseOfSelectedCity(city));
+    },
+    requestSortedHouse:(city)=>{
+      dispatch(requestSortedHouse(city));
     }
   };
 };
