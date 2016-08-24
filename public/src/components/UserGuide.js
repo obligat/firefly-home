@@ -1,7 +1,7 @@
 /**
  * Created by rendandan on 16-8-23.
  */
-import React, {Component} from 'react';
+import React, {Component} from 'react';//eslint-disable-line no-unused-vars
 import Header from './Header';
 import Footer from './Footer';
 

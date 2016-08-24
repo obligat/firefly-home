@@ -15,7 +15,7 @@ app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
 app.use(express.static(__dirname + '/public'));
 
 app.use((req, res, next) => {
-  console.log(req.method + '   ' + req.url);
+  console.log(req.method + '   ' + req.url);//eslint-disable-line no-console
   next();
 });
 
