@@ -35,7 +35,7 @@ describe('get', function () {
       });
   });
 
-  it('should return no information of houses', (done)=> {
+  it('should not return no information of houses', (done)=> {
     let house = null;
 
     request
@@ -57,14 +57,14 @@ describe('get', function () {
       });
   });
 
-  it('should return no information of specific city', (done)=>{
+  it('should not return no information of specific city', (done)=> {
     let expected = null;
     const city = "北京";
 
     request
       .get('/api/houses/city')
       .query({city})
-      .end((err, res)=>{
+      .end((err, res)=> {
         callbackForError(err, res, done, expected);
       });
   });
@@ -78,6 +78,18 @@ describe('get', function () {
       .query({city})
       .end((err, res)=> {
         callback(err, res, done, expectedCount);
+      });
+  });
+
+  it('should not return no information of sorted house', (done)=> {
+    const city = '成都';
+    const expexted = null;
+
+    request
+      .get('/api/house/sorted-house')
+      .query({city})
+      .end((err, res)=> {
+        callbackForError(err, res, done, expexted);
       });
   });
 });
