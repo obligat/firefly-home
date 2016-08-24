@@ -57,6 +57,18 @@ describe('get', function () {
       });
   });
 
+  it('should return no information of specific city', (done)=>{
+    let expected = null;
+    const city = "北京";
+
+    request
+      .get('/api/houses/city')
+      .query({city})
+      .end((err, res)=>{
+        callbackForError(err, res, done, expected);
+      });
+  });
+
   it('should return sorted house list', (done)=> {
     const city = "成都";
     const expectedCount = 2;
@@ -66,7 +78,7 @@ describe('get', function () {
       .query({city})
       .end((err, res)=> {
         callback(err, res, done, expectedCount);
-      })
+      });
   });
 });
 
