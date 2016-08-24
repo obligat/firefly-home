@@ -49,9 +49,14 @@ body {
 
 .header {
     height: 55px;
-    background-color: #e7c3c3;
+    background-color:#ffff00;
     line-height: 55px;
 }
+.row{
+    padding-top: 10px;
+}
+
+
 
 .right {
     float: right;
@@ -132,7 +137,10 @@ a {
     width: 100%;
     height: 60px;
 }
-
+.logo{
+    width: 60px;
+    height: 60px;
+}
 .span1 {
     font-size: 30px;
     font-style: oblique;
@@ -152,33 +160,27 @@ a {
     float: right;
 }
 
-#linkHomepage1, #linkHomepage2 ,#UserGuide{
-    float: left;
-    margin-right: 50px;
-    font-size: 18px;
-}
+
 
 .information {
     float: left;
     margin-left: 450px;
 }
 
-#p1 {
+.p1 {
     font-size: 50px;
     color: #666666;
-    text-algin: center;
+
 }
 
-#p2 {
+.p2 {
     font-size: 25px;
     color: #666666;
-    text-algin: center;
+
 }
 
 .rent {
-    float: right;
-    margin-right: 20px;
-    padding-top: 30px;
+    padding-top: 9px;
 }
 
 .houses {
@@ -220,3 +222,6 @@ tr img:hover {
     height: 50px;
 }
 
+.userGuide{
+    height: 530px ;
+}

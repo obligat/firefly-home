@@ -5,7 +5,8 @@ module.exports = {
   entry: {
     vendor: ["react", "redux", "react-redux", "react-dom",
       "./node_modules/bootstrap/dist/css/bootstrap.css",
-      "./node_modules/font-awesome/css/font-awesome.min.css"
+      "./node_modules/font-awesome/css/font-awesome.min.css",
+      "./node_modules/react-image-gallery/build/image-gallery.css"
     ],
     index: ["./public/src/index", "./public/style/index.css"],
   },
