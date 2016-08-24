@@ -31,9 +31,9 @@ router.get('/', (req, res)=> {
   });
 });
 
-router.get('/:city', (req, res)=> {
+router.get('/city', (req, res)=> {
   House
-    .where({city: req.params.city})
+    .where({city: req.query.city})
     .find((err, houses)=> {
       if (err)
         return res.sendStatus(500);
