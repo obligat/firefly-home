@@ -3,12 +3,12 @@
  */
 import request from 'superagent';
 
-export const requestHouseList = (city, sort)=> {
+export const requestHouseList = (city, sortRule)=> {
   return (dispatch)=> {
     request
       .get('/api/houses')
       .query({city})
-      .query({sort})
+      .query({sortRule})
       .end((err, res)=> {
         if (err) {
           throw err;

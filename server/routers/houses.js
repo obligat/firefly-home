@@ -23,9 +23,9 @@ function returnValue(houses) {
 
 router.get('/', (req, res)=> {
   let city = req.query.city;
-  let sort = req.query.sort;
+  let sortRule = req.query.sortRule;
 
-  if (!city && !sort) {
+  if (!city && !sortRule) {
     House.find((err, houses)=> {
       if (err) {
         return res.sendStatus(500);
@@ -33,16 +33,7 @@ router.get('/', (req, res)=> {
         res.send(returnValue(houses));
       }
     });
-  } else if (!city && sort) {
-    House.find((err, houses)=> {
-      if (err) {
-        return res.sendStatus(500);
-      } else {
-        const result = returnValue(houses).sort((a, b)=> a[sort] > b[sort]);
-        res.send(result);
-      }
-    });
-  } else if (city && !sort) {
+  } else if (city && !sortRule) {
     House
       .where({city: req.query.city})
       .find((err, houses)=> {
@@ -52,13 +43,13 @@ router.get('/', (req, res)=> {
           res.send(returnValue(houses));
         }
       });
-  } else if (city && sort) {
+  } else if (city && sortRule) {
     House.where({city: req.query.city})
       .find((err, houses)=> {
         if (err) {
           return res.sendStatus(500);
         } else {
-          const result = returnValue(houses).sort((a, b)=> a[sort] > b[sort]);
+          const result = returnValue(houses).sort((a, b)=> a[sortRule] > b[sortRule]);
           res.send(result);
         }
       });

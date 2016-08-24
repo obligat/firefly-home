@@ -11,7 +11,7 @@ class SelectZone extends Component {
   handleChange() {
     let {select} = this.props;
     let cityOfSelect = this.refs.citySelect.value;
-    let sortRule = 'id';
+    let sortRule = '';
 
     select(cityOfSelect, sortRule);
   }
