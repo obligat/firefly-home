@@ -28,6 +28,7 @@ class HouseResource extends Component {
           <br/><br/>
           <HouseList houses={houseResource}/>
         </div>
+        <Footer />
       </div>
     );
   }

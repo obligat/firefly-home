@@ -21,7 +21,7 @@ function returnValue(houses) {
   });
 }
 
-router.get('/', (req, res)=> {
+router.get('/', (req, res)=> {//eslint-disable-line complexity
   let city = req.query.city;
   let sortRule = req.query.sortRule;
 
