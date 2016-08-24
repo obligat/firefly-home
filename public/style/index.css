@@ -3,13 +3,18 @@ body {
 }
 
 #all {
-    margin: 15% 30%;
-    border: 1px solid #4cae4c;
+    background-repeat: no-repeat;
     text-align: center;
-    height: 50%;
     color: #398439;
+    background-size: 100%;
+    background-image: url("http://img02.tooopen.com/images/20160620/tooopen_sy_165702881727.jpg");
+    height: 600px;
 }
 
+#errNameDiv, #errPswDiv{
+    text-align: center;
+
+}
 #errName, #errPsw {
     color: red;
 }
@@ -18,6 +23,9 @@ body {
     margin: 0 auto;
 }
 
+#login{
+    margin: 0 35%;
+}
 #loginToRegister {
     margin-left: 350px;
 }
@@ -49,7 +57,7 @@ body {
 
 .header {
     height: 55px;
-    background-color:#ffff00;
+    background-color:#d0e9c6;
     line-height: 55px;
 }
 .row{
@@ -199,4 +207,12 @@ tr img:hover {
 
 .userGuide{
     height: 530px ;
+    font-size: medium;
+    font-weight: bold;
+    font-family: STXingkai ;
+}
+
+.userGuideTitle1, .userGuideTitle2, .userGuideTitle3{
+    color: #fc8c84;
+    font-size: 20px;
 }
