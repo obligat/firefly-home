@@ -11,7 +11,7 @@ class UserGuide extends Component {
       <div>
         <Header />
         <br/>
-        <div>
+        <div className="userGuide">
           <ul>
             <li>独特的房间和预订</li>
             <p>萤火虫是一个基于分享经济的社交住宿平台。在萤火虫上，您将有机会住进一个陌生朋友的家中，价格不到酒店的一半，
