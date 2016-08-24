@@ -6,11 +6,26 @@ import Footer from './Footer';
 
 class Homepage extends Component {
   render() {
+    const images = [
+      {
+        original: '/images/homepageImages/homepage1.jpg',
+        thumbnail: '/images/homepageImages/homepage1.jpg',
+      },
+      {
+        original: '/images/homepageImages/homepage2.jpg',
+        thumbnail: '/images/homepageImages/homepage2.jpg',
+      },
+      {
+        original: '/images/homepageImages/homepage3.jpg',
+        thumbnail: '/images/homepageImages/homepage3.jpg',
+      }
+    ];
+
     return (
       <div >
         <Header/>
 
-        <ReactGallery />
+        <ReactGallery images={images}/>
 
         <div className="container">
           <div className="col-xs-9">
@@ -24,10 +39,10 @@ class Homepage extends Component {
           </div>
         </div>
 
-        <Footer/>
-      </div>
-    );
-  }
+                <Footer/>
+            </div>
+        );
+    }
 }
 
 export default Homepage;
