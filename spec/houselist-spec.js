@@ -50,7 +50,7 @@ describe('get', function () {
     const city = "北京";
 
     request
-      .get(encodeURI('/api/houses/city'))
+      .get('/api/houses')
       .query({city})
       .end((err, res) => {
         callback(err, res, done, expectedCount);
@@ -62,7 +62,7 @@ describe('get', function () {
     const city = "北京";
 
     request
-      .get('/api/houses/city')
+      .get('/api/houses')
       .query({city})
       .end((err, res)=> {
         callbackForError(err, res, done, expected);
@@ -71,11 +71,13 @@ describe('get', function () {
 
   it('should return sorted house list', (done)=> {
     const city = "成都";
+    const sortRule = 'price';
     const expectedCount = 2;
 
     request
-      .get('/api/houses/sorted-house')
+      .get('/api/houses')
       .query({city})
+      .query({sortRule})
       .end((err, res)=> {
         callback(err, res, done, expectedCount);
       });
@@ -83,11 +85,13 @@ describe('get', function () {
 
   it('should not return no information of sorted house', (done)=> {
     const city = '成都';
+    const sortRule = 'price';
     const expexted = null;
 
     request
-      .get('/api/house/sorted-house')
+      .get('/api/houses')
       .query({city})
+      .query({sortRule})
       .end((err, res)=> {
         callbackForError(err, res, done, expexted);
       });
