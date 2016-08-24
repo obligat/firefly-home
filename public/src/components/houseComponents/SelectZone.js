@@ -20,8 +20,8 @@ class SelectZone extends Component {
       <div className="col-sm-12">
         <form>
           <label className="col-sm-1">城市</label>
-          <select className="col-sm-1" value={this.props.initialCity}
-                  onChange={this.handleChange.bind(this)} ref="citySelect">
+          <select className="col-sm-1" onChange={this.handleChange.bind(this)}
+                  ref="citySelect">
             <option value="">all</option>
             <option value="北京">北京</option>
             <option value="上海">上海</option>
