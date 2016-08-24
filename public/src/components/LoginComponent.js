@@ -37,14 +37,12 @@ class LoginComponent extends Component {
     return (
       <div>
         <Header />
-        <div id="all" className="panel panel-default">
-          <div id="head">
-            <h2>萤火虫之家</h2>
-          </div>
-
+        <div className="page hidden-sm">
+          <div className="data-toggle register">
+          <div className="title">Welcome To Firefly Home</div>
           <div id="body">
             <form>
-              <div id="nameDiv" className="col-xs-5 input-group">
+              <div id="nameDiv" className="col-xs-9 input-group">
                 <span className="input-group-addon glyphicon glyphicon-user"/>
                 <input
                   id="name"
@@ -57,14 +55,14 @@ class LoginComponent extends Component {
 
               </div>
 
-              <div>
+              <div id="errNameDiv">
                 {
                   isExist ? ('') : (<span id="errName">用户未注册</span>)
                 }<br/>
               </div>
 
 
-              <div id="passwordDiv" className="col-xs-5 input-group">
+              <div id="passwordDiv" className="col-xs-9 input-group">
                 <span className="input-group-addon glyphicon glyphicon-lock"/>
                 <input
                   id="password"
@@ -73,7 +71,7 @@ class LoginComponent extends Component {
                   ref="psw"
                   placeholder="密码"/>
               </div>
-              <div>{
+              <div id="errPswDiv">{
                 loginMessage.error ? (<span id="errPsw">{loginMessage.message}</span>) : ('')
               }<br/>
               </div>
@@ -81,9 +79,9 @@ class LoginComponent extends Component {
 
               <button id="login"
                       type="button"
-                      className="btn btn-success"
+                      className="btn col-xm-3"
                       onClick={this.handlerClick.bind(this)}>
-                登录
+                <strong>登录</strong>
               </button>
 
             </form>
@@ -94,6 +92,7 @@ class LoginComponent extends Component {
             <Link id='loginToRegister' to="/register">注册新账号</Link>
           </div>
         </div>
+          </div>
         <Footer />
       </div>
     );
