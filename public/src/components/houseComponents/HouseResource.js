@@ -14,9 +14,16 @@ class HouseResource extends Component {
     super(props);
   }
 
+  componentDidMount() {
+    let {city} = this.props.location.query;
+    if (city !== undefined) {
+      this.props.requestHouseOfSelectedCity(city);
+    }
+  }
+
   render() {
     const {houseResource, requestHouseOfSelectedCity} = this.props;
-    let {city} = this.props.params;
+    let {city} = this.props.location.query;
 
     return (
       <div>
