@@ -45,12 +45,14 @@ router.get('/city', (req, res)=> {
 
 router.get('/sorted-house', (req, res)=> {
 
+  let rule = req.query.sort;
+
   House.where({city: req.query.city})
     .find((err, houses)=> {
       if (err) {
         return res.sendStatus(500);
       } else {
-        const result = returnValue(houses).sort((a, b)=> a.price > b.price);
+        const result = returnValue(houses).sort((a, b)=> a[rule] > b[rule]);
         res.send(result);
       }
 

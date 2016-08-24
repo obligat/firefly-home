@@ -7,7 +7,7 @@ export const houseResource = (state = [], action)=> {
     return action.data;
   case 'HOUSE_OF_SELECTED_CITY':
     return action.data;
-  case 'HOUSE_OF_SORT_BY_PRICE':
+  case 'HOUSE_OF_SORT':
     return action.data;
   default:
     return state;

@@ -42,8 +42,8 @@ const mapDispatchToProps = (dispatch)=> {
     requestHouseOfSelectedCity: (city)=> {
       dispatch(requestHouseOfSelectedCity(city));
     },
-    requestSortedHouse:(city)=>{
-      dispatch(requestSortedHouse(city));
+    requestSortedHouse: (city, sort)=> {
+      dispatch(requestSortedHouse(city, sort));
     }
   };
 };

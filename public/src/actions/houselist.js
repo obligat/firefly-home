@@ -51,11 +51,12 @@ const houseOfSelectedCity = (houses)=> {
   };
 };
 
-export const requestSortedHouse = (city)=> {
+export const requestSortedHouse = (city, sort)=> {
   return (dispatch)=> {
     request
       .get('/api/houses/sorted-house')
       .query({city})
+      .query({sort})
       .end((err, res)=> {
         if (err) {
           throw err;
@@ -68,7 +69,7 @@ export const requestSortedHouse = (city)=> {
 
 const houseOfSortedByPrice = (houses)=> {
   return {
-    type: 'HOUSE_OF_SORT_BY_PRICE',
+    type: 'HOUSE_OF_SORT',
     data: houses
   }
 };

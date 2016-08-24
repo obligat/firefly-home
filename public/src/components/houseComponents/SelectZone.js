@@ -15,11 +15,12 @@ class SelectZone extends Component {
     select(cityOfSelect);
   }
 
-  handleClick(){
+  handleClick() {
     let {sort} = this.props;
     let cityOfSelect = this.refs.citySelect.value;
+    let sortRule = this.refs.myButton.value;
 
-    sort(cityOfSelect);
+    sort(cityOfSelect, sortRule);
   }
 
   render() {
@@ -42,7 +43,9 @@ class SelectZone extends Component {
           <div className="row">
             <form>
               <label className="col-sm-1">排序</label>
-              <button type="button" className="col-sm-1" onClick={this.handleClick.bind(this)}>Price</button>
+              <button type="button" className="col-sm-1" value="price"
+                      onClick={this.handleClick.bind(this)} ref="myButton">Price
+              </button>
             </form>
           </div>
         </div>
