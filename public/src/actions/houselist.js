@@ -5,7 +5,8 @@ import request from 'superagent';
 
 export const requestHouseList = ()=> {
   return (dispatch)=> {
-    request.get('/api/houses')
+    request
+      .get('/api/houses')
       .end((err, res)=> {
         dispatch(houseList(res.body));
       });
@@ -14,10 +15,16 @@ export const requestHouseList = ()=> {
 
 export const requestHouseOfSelectedCity = (city)=> {
   return (dispatch)=> {
-    request.get(`/api/houses/${city}`)
-      .end((err, res)=> {
-        dispatch(houseOfSelectedCity(res.body));
-      });
+    if (city) {
+      request
+        .get('/api/houses/city')
+        .query({city})
+        .end((err, res)=> {
+          dispatch(houseOfSelectedCity(res.body));
+        });
+    } else {
+      dispatch(requestHouseList());
+    }
   };
 };
 
