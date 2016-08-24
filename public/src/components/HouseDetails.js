@@ -66,9 +66,8 @@ export default class HouseDetails extends Component {
           <div>
             <span className="title-span">{name}</span><br/>
             <div>
-              <a href="#">萤火虫</a><span>></span><a href="#">{city}></a>{address}
+              <a href="#">萤火虫</a><span>></span><Link to={'/houseResource/?city='+city}>{city}></Link>{address}
             </div>
-            {/*<img src={image} className="room1-picture"/>*/}
             <ReactGallery images={images}/>
             <div className="body-right">
               <div className="day-price">
