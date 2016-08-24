@@ -26,8 +26,8 @@ function callbackForError(err, res, done, house) {
 
 describe('get', function () {
   it('should return information of houses', (done)=> {
-
     const expectedCount = 19;
+
     request
       .get('/api/houses')
       .end((err, res)=> {
@@ -37,6 +37,7 @@ describe('get', function () {
 
   it('should return no information of houses', (done)=> {
     let house = null;
+
     request
       .get('/api/houses')
       .end((err, res)=> {
@@ -46,19 +47,26 @@ describe('get', function () {
 
   it('should return the information of specific city', (done)=> {
     const expectedCount = 9;
-
     const city = "北京";
-    request.get(encodeURI(`/api/houses/${city}`))
-      .end((err, res) => {
-        if (err) {
-          done.fail(err);
-        }
-        else {
-          expect(res.body.length).toEqual(expectedCount)
-          done();
 
-        }
+    request
+      .get(encodeURI('/api/houses/city'))
+      .query({city})
+      .end((err, res) => {
+        callback(err, res, done, expectedCount);
       });
+  });
+
+  it('should return sorted house list', (done)=> {
+    const city = "成都";
+    const expectedCount = 2;
+
+    request
+      .get('/api/houses/sorted-house')
+      .query({city})
+      .end((err, res)=> {
+        callback(err, res, done, expectedCount);
+      })
   });
 });
 
