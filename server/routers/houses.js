@@ -22,41 +22,47 @@ function returnValue(houses) {
 }
 
 router.get('/', (req, res)=> {
-  House.find((err, houses)=> {
-    if (err) {
-      return res.sendStatus(500);
-    } else {
-      res.send(returnValue(houses));
-    }
-  });
-});
+  let city = req.query.city;
+  let sort = req.query.sort;
 
-router.get('/city', (req, res)=> {
-  House
-    .where({city: req.query.city})
-    .find((err, houses)=> {
-      if (err)
-        return res.sendStatus(500);
-      else {
-        res.send(returnValue(houses));
-      }
-    });
-});
-
-router.get('/sorted-house', (req, res)=> {
-
-  let rule = req.query.sort;
-
-  House.where({city: req.query.city})
-    .find((err, houses)=> {
+  if (!city && !sort) {
+    House.find((err, houses)=> {
       if (err) {
         return res.sendStatus(500);
       } else {
-        const result = returnValue(houses).sort((a, b)=> a[rule] > b[rule]);
+        res.send(returnValue(houses));
+      }
+    });
+  } else if (!city && sort) {
+    House.find((err, houses)=> {
+      if (err) {
+        return res.sendStatus(500);
+      } else {
+        const result = returnValue(houses).sort((a, b)=> a[sort] > b[sort]);
         res.send(result);
       }
-
     });
+  } else if (city && !sort) {
+    House
+      .where({city: req.query.city})
+      .find((err, houses)=> {
+        if (err)
+          return res.sendStatus(500);
+        else {
+          res.send(returnValue(houses));
+        }
+      });
+  } else if (city && sort) {
+    House.where({city: req.query.city})
+      .find((err, houses)=> {
+        if (err) {
+          return res.sendStatus(500);
+        } else {
+          const result = returnValue(houses).sort((a, b)=> a[sort] > b[sort]);
+          res.send(result);
+        }
+      });
+  }
 });
 
 module.exports = router;
