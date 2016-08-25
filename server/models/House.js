@@ -10,7 +10,7 @@ const House = mongoose.model('House', {
   address: String,
   city: String,
   type: String,
-  image: String,
+  image: Array,
   houseDescription: String,
   situation: String
 });

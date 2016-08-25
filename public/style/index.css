@@ -96,6 +96,19 @@ a {
     text-decoration: none;
 }
 
+
+.price{
+    float: left;
+    font-size: 25px;
+    text-align: center;
+}
+
+.per{
+    float: right;
+    text-align: center;
+}
+
+
 .room1-picture {
     width: 660px;
     height: 435px;
@@ -112,10 +125,35 @@ a {
     cursor: pointer;
 }
 
-.body-right {
-    float: right;
+.day-price {
+    width: 340px;
+    height:25px;
+    text-align: center;
+    margin: 10px 20px;
+
 }
 
+.body-right{
+    float:right;
+    width:380px;
+    height:366px;
+}
+
+.carousel{
+    width:550px;
+    float:left;
+}
+.start {
+    float: left;
+    margin:10px 20px;
+}
+.end{
+    float:left;
+    margin:10px 20px;
+}
+.subscribe{
+    text-align: center;
+}
 /*hompage*/
 .header {
     width: 100%;

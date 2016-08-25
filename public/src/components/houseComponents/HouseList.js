@@ -10,7 +10,6 @@ class HouseList extends Component {
     return (
       <div>
         {
-
           houses.map((v, k)=>(
             <HouseItem id={v.id} key={k} name={v.name} type={v.type}
                        price={v.price} address={v.address}

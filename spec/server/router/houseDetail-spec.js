@@ -19,7 +19,7 @@ describe('post', () => {
       address: '高声桥北街',
       city: '北京',
       type: '单间',
-      image: 'images/houseImages/04.jpg',
+      image: [ 'images/houseImages/04.jpg', 'images/houseImages/02.jpg', 'images/houseImages/03.jpg' ],
       houseDescription: '我是名游戏影视动画师，懂些美术，会点代码。现在也在做vr虚拟现实。在沿海一线城市生活过，' +
       '挣扎过最后还是逃回成都，过着没心没肺，安于现状的生活。没事约朋友聚餐，打球，徒步，看电影，唱歌，爬山，喝茶，' +
       '玩狼人杀消磨时光。热情好客，待人真诚，性格随和，喜欢老庄他们倡导的那种顺应自然，无拘无束的生活方式，梦想嘛，开一个个人工作室，' +
