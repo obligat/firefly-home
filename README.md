@@ -17,9 +17,10 @@ twa-camp-2016 集体项目
 2. [~] $: cd firefly-home  
 3. [ firefly-home ] $: npm install  
 4. [ firefly-home ] $: mongod OR sudo mongod  
-4. [ firefly-home ] $: npm run webpack  
-5. [ firefly-home ] $: npm start  
-6. 打开浏览器，输入localhost:3000打开firefly-home主页，开始firefly之旅：)    
+5. [ firefly-home ] $: npm run refreshMongo  
+6. [ firefly-home ] $: npm run webpack  
+7. [ firefly-home ] $: npm start  
+8. 打开浏览器，输入localhost:3000打开firefly-home主页，开始firefly之旅 :)  
 
 
 ## 重复运行jamine测试
