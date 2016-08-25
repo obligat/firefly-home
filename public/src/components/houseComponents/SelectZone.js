@@ -64,7 +64,7 @@ class SelectZone extends Component {
               <label className="col-sm-1">排序</label>
               <button type="button" className="col-sm-1" value="price"
                       onClick={this.handleClick.bind(this)} ref="myButton">
-                Price
+                价格
               </button>
             </form>
           </div>
