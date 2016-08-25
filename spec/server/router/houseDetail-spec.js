@@ -8,6 +8,9 @@ const request = supertest(app);
 
 
 describe('post', () => {
+  beforeAll(()=> {
+    spyOn(console, 'log');
+  })
   it('should return house detail with name,price,type....', (done) => {
     let result = {
       _id: 4,
