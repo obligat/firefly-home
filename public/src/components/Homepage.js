@@ -39,10 +39,10 @@ class Homepage extends Component {
           </div>
         </div>
 
-                <Footer/>
-            </div>
-        );
-    }
+        <Footer/>
+      </div>
+    );
+  }
 }
 
 export default Homepage;
