@@ -14,23 +14,13 @@ import ReactGallery from './ReactGallery';
 function isEmpty(obj) {
 
   var hasOwnProperty = Object.prototype.hasOwnProperty;
-
-  // null and undefined are "empty"
   if (obj == null) return true;
 
-  // Assume if it has a length property with a non-zero value
-  // that that property is correct.
   if (obj.length > 0)    return false;
   if (obj.length === 0)  return true;
 
-  // If it isn't an object at this point
-  // it is empty, but it can't be anything *but* empty
-  // Is it empty?  Depends on your application.
   if (typeof obj !== "object") return true;
 
-  // Otherwise, does it have any properties of its own?
-  // Note that this doesn't handle
-  // toString and valueOf enumeration bugs in IE < 9
   for (var key in obj) {
     if (hasOwnProperty.call(obj, key)) return false;
   }
@@ -55,7 +45,7 @@ export default class HouseDetails extends Component {
     if (!isEmpty(this.props.houseDetails)) {
       const {name, price, image, city, address, houseDescription, situation} = this.props.houseDetails;
 
-      const images = image.map(v =>{
+      const images = image.map(v => {
         return {
           original: v,
           thumbnail: v,
@@ -65,39 +55,40 @@ export default class HouseDetails extends Component {
 
       return (
         <div>
+          <Header/>
           <div>
             <span className="title-span">{name}</span><br/>
             <div>
-              <a href="#">萤火虫</a><span>></span><Link to={'/houseResource/?city='+city}>{city}></Link>{address}
+              <a href="#">萤火虫</a><span>></span><Link to={'/houseResource/?city=' + city}>{city}></Link>{address}
             </div>
             <div className="carousel">
               <ReactGallery images={images}/>
             </div>
-              <div className="body-right">
-                <div className="day-price">
-                  <div className="price">￥{price}</div>
-                  <div className="per">每晚</div>
-                </div>
-                <div className="start">
-                    <select ref="startYear">
-                      <option>2015年</option>
-                      <option>2016年</option>
-                    </select>
-                    <MonthSelect ref="startMonth"/>
-                    <DaySelect ref="startDay"/>
-                </div>
-                <div className="end">
-                    <select ref="endYear">
-                      <option>2015年</option>
-                      <option>2016年</option>
-                    </select>
-                    <MonthSelect ref="endMonth"/>
-                    <DaySelect ref="endDay"/>
-                </div>
-                <div className="subscribe">
-                    <button>立即预订 ￥</button>
-                </div>
+            <div className="body-right">
+              <div className="day-price">
+                <div className="price">￥{price}</div>
+                <div className="per">每晚</div>
               </div>
+              <div className="start">
+                <select ref="startYear">
+                  <option>2015年</option>
+                  <option>2016年</option>
+                </select>
+                <MonthSelect ref="startMonth"/>
+                <DaySelect ref="startDay"/>
+              </div>
+              <div className="end">
+                <select ref="endYear">
+                  <option>2015年</option>
+                  <option>2016年</option>
+                </select>
+                <MonthSelect ref="endMonth"/>
+                <DaySelect ref="endDay"/>
+              </div>
+              <div className="subscribe">
+                <button>立即预订 ￥</button>
+              </div>
+            </div>
             <div>
               <h2>个性描述</h2>
               {houseDescription}
@@ -106,8 +97,9 @@ export default class HouseDetails extends Component {
               <h2>内部情况</h2>
               {situation}
             </div>
-            </div>
           </div>
+          <Footer/>
+        </div>
       );
     }
     else {
