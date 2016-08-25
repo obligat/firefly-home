@@ -68,33 +68,34 @@ export default class HouseDetails extends Component {
             <div>
               <a href="#">萤火虫</a><span>></span><Link to={'/houseResource/?city='+city}>{city}></Link>{address}
             </div>
-            <ReactGallery images={images}/>
-            <div className="body-right">
-              <div className="day-price">
-                <div className="price">￥{price}</div>
-                <div className="per">每晚</div>
+            <div className="carousel">
+              <ReactGallery images={images}/>
+            </div>
+              <div className="body-right">
+                <div className="day-price">
+                  <div className="price">￥{price}</div>
+                  <div className="per">每晚</div>
+                </div>
                 <div className="start">
-                  <select ref="startYear">
-                    <option>2015年</option>
-                    <option>2016年</option>
-                  </select>
-                  <MonthSelect ref="startMonth"/>
-                  <DaySelect ref="startDay"/>
+                    <select ref="startYear">
+                      <option>2015年</option>
+                      <option>2016年</option>
+                    </select>
+                    <MonthSelect ref="startMonth"/>
+                    <DaySelect ref="startDay"/>
                 </div>
                 <div className="end">
-                  <select ref="endYear">
-                    <option>2015年</option>
-                    <option>2016年</option>
-                  </select>
-                  <MonthSelect ref="endMonth"/>
-                  <DaySelect ref="endDay"/>
+                    <select ref="endYear">
+                      <option>2015年</option>
+                      <option>2016年</option>
+                    </select>
+                    <MonthSelect ref="endMonth"/>
+                    <DaySelect ref="endDay"/>
                 </div>
                 <div className="subscribe">
-                  <button>立即预订 ￥</button>
+                    <button>立即预订 ￥</button>
                 </div>
               </div>
-            </div>
-
             <div>
               <h2>个性描述</h2>
               {houseDescription}
@@ -103,12 +104,12 @@ export default class HouseDetails extends Component {
               <h2>内部情况</h2>
               {situation}
             </div>
+            </div>
           </div>
-        </div>
       );
     }
     else {
-      return (<h1>sldkfjlksjdklfjlskdjflkj</h1>);
+      return (<h1></h1>);
     }
 
   }

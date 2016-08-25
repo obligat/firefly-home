@@ -99,13 +99,6 @@ a {
     text-align: center;
 }
 
-.start{
-    width: 180px;
-}
-
-.end{
-    width: 180px;
-}
 
 .room1-picture {
     width: 660px;
@@ -124,14 +117,34 @@ a {
 }
 
 .day-price {
-    width: 240px;
+    width: 340px;
+    height:25px;
+    text-align: center;
+    margin: 10px 20px;
 
 }
 
 .body-right{
     float:right;
+    width:380px;
+    height:366px;
 }
 
+.carousel{
+    width:550px;
+    float:left;
+}
+.start {
+    float: left;
+    margin:10px 20px;
+}
+.end{
+    float:left;
+    margin:10px 20px;
+}
+.subscribe{
+    text-align: center;
+}
 /*hompage*/
 .header {
     width: 100%;
