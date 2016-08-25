@@ -1,5 +1,3 @@
-![Logo | 100x0](./logo/logo.jpg)
-
 # Firefly-Home （萤火虫之家）
 
 ## 项目描述
