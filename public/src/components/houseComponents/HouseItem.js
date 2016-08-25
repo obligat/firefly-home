@@ -11,7 +11,7 @@ class HouseItem extends Component {
       <div className="raw">
         <div className="text-center col-xs-4">
           <Link to={'/houseDetail/' + id} className="text-center thumbnail">
-            <img src={image} alt="..."/>
+            <img src={image[0]} alt="..."/>
           </Link>
           <div>{name},{address},{city}</div>
           <div>{type},￥{price}/晚</div>

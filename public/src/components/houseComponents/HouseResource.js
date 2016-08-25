@@ -5,7 +5,6 @@ import React, {Component} from 'react';//eslint-disable-line no-unused-vars
 import {connect} from 'react-redux';
 import HouseList from './HouseList';
 import SelectZone from './SelectZone';
-
 import {requestHouseList} from '../../actions/houselist';
 import Header from '../Header';
 
@@ -14,19 +13,24 @@ class HouseResource extends Component {
     super(props);
   }
 
-  render() {
+  componentDidMount() {
+    let {city} = this.props.location.query;
+    if (city !== undefined) {
+      this.props.requestHouseList(city);
+    }
+  }
 
+  render() {
     const {houseResource, requestHouseList} = this.props;
+    let {city} = this.props.location.query;
 
     return (
       <div className="houselist">
         <Header />
         <br/>
-        <div>
-          <SelectZone select={requestHouseList}/>
-          <br/><br/>
-          <HouseList houses={houseResource}/>
-        </div>
+        <SelectZone select={requestHouseList} city={city}/>
+        <br/><br/>
+        <HouseList houses={houseResource}/>
         <div className="houselist-footer">
           <div className="col-xs-4 text-center "><a href="#"><h4><strong>关于我们</strong></h4></a></div>
           <div className="col-xs-4 text-center "><a href="#"><h4><strong>帮助中心</strong></h4></a></div>
@@ -45,8 +49,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch)=> {
   return {
-    requestHouseList: (city, sort)=> {
-      dispatch(requestHouseList(city, sort));
+    requestHouseList: (city, sortRule)=> {
+      dispatch(requestHouseList(city, sortRule));
     }
   };
 };
