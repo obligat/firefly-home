@@ -8,7 +8,6 @@ import SelectZone from './SelectZone';
 
 import {requestHouseList} from '../../actions/houselist';
 import Header from '../Header';
-import Footer from '../Footer';
 
 class HouseResource extends Component {
   constructor(props) {
@@ -20,7 +19,7 @@ class HouseResource extends Component {
     const {houseResource, requestHouseList} = this.props;
 
     return (
-      <div>
+      <div className="houselist">
         <Header />
         <br/>
         <div>
@@ -28,7 +27,11 @@ class HouseResource extends Component {
           <br/><br/>
           <HouseList houses={houseResource}/>
         </div>
-        <Footer />
+        <div className="houselist-footer">
+          <div className="col-xs-4 text-center "><a href="#"><h4><strong>关于我们</strong></h4></a></div>
+          <div className="col-xs-4 text-center "><a href="#"><h4><strong>帮助中心</strong></h4></a></div>
+          <div className="col-xs-4 text-center "><a href="#"><h4><strong>客服电话</strong></h4></a></div>
+        </div>
       </div>
     );
   }

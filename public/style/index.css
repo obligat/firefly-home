@@ -11,10 +11,11 @@ body {
     height: 600px;
 }
 
-#errNameDiv, #errPswDiv{
+#errNameDiv, #errPswDiv {
     text-align: center;
 
 }
+
 #errName, #errPsw {
     color: red;
 }
@@ -23,9 +24,10 @@ body {
     margin: 0 auto;
 }
 
-#login{
+#login {
     margin: 0 35%;
 }
+
 #loginToRegister {
     margin-left: 350px;
 }
@@ -57,14 +59,13 @@ body {
 
 .header {
     height: 55px;
-    background-color:#d0e9c6;
+    background-color: #d0e9c6;
     line-height: 55px;
 }
-.row{
+
+.row {
     padding-top: 10px;
 }
-
-
 
 .right {
     float: right;
@@ -120,10 +121,12 @@ a {
     width: 100%;
     height: 60px;
 }
-.logo{
+
+.logo {
     width: 60px;
     height: 60px;
 }
+
 .span1 {
     font-size: 30px;
     font-style: oblique;
@@ -142,8 +145,6 @@ a {
 .right {
     float: right;
 }
-
-
 
 .information {
     float: left;
@@ -199,20 +200,33 @@ tr img:hover {
     padding: 15px 50px;
 }
 
-.tail{
+.houselist {
+    position: relative;
+}
+
+
+.houselist-footer {
+    position: fixed;
+    bottom: 0;
     background-color: #bbbbbb;
     width: 1140px;
     height: 50px;
 }
 
-.userGuide{
-    height: 530px ;
-    font-size: medium;
-    font-weight: bold;
-    font-family: STXingkai ;
+.tail {
+    background-color: #bbbbbb;
+    width: 1140px;
+    height: 50px;
 }
 
-.userGuideTitle1, .userGuideTitle2, .userGuideTitle3{
+.userGuide {
+    height: 530px;
+    font-size: medium;
+    font-weight: bold;
+    font-family: STXingkai;
+}
+
+.userGuideTitle1, .userGuideTitle2, .userGuideTitle3 {
     color: #fc8c84;
     font-size: 20px;
 }
