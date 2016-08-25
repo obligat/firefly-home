@@ -3,13 +3,13 @@
  */
 import React, {Component} from 'react';//eslint-disable-line no-unused-vars
 import {connect} from 'react-redux';
-import {requestHouseDetails} from '../actions/housedetails';
-import Header from './Header';
-import Footer from './Footer';
+import {requestHouseDetails} from '../../actions/housedetails';
+import Header from '../Header';
+import Footer from '../Footer';
 import MonthSelect from './MonthSelect';
 import DaySelect from './DaySelect';
 import {Link} from 'react-router';
-import ReactGallery from './ReactGallery';
+import ReactGallery from '../ReactGallery';
 
 function isEmpty(obj) { //eslint-disable-line complexity
 
@@ -70,6 +70,7 @@ export default class HouseDetails extends Component {
                 <div className="per">每晚</div>
               </div>
               <div className="start">
+                <span>入住日期：</span>
                 <select ref="startYear">
                   <option>2015年</option>
                   <option>2016年</option>
@@ -78,6 +79,7 @@ export default class HouseDetails extends Component {
                 <DaySelect ref="startDay"/>
               </div>
               <div className="end">
+                <span>离开日期：</span>
                 <select ref="endYear">
                   <option>2015年</option>
                   <option>2016年</option>
@@ -86,7 +88,18 @@ export default class HouseDetails extends Component {
                 <DaySelect ref="endDay"/>
               </div>
               <div className="subscribe">
-                <button>立即预订 ￥</button>
+                <Link to='/orderPage'>立即预订</Link>
+              </div>
+              <div className="landlord">
+                <img src="images/homePage/landlord.jpg" className="head-pic"/>
+              </div>
+              <div>
+                <div className="name">
+                  <span>shary</span>
+                  <p>
+                    <span>实名认证.个人房东</span>
+                  </p>
+                </div>
               </div>
             </div>
             <div>
