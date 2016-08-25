@@ -21,26 +21,39 @@ function returnValue(houses) {
   });
 }
 
-router.get('/', (req, res)=> {
-  House.find((err, houses)=> {
-    if (err) {
-      return res.sendStatus(500);
-    } else {
-      res.send(returnValue(houses));
-    }
-  });
-});
+router.get('/', (req, res)=> {//eslint-disable-line complexity
+  let city = req.query.city;
+  let sortRule = req.query.sortRule;
 
-router.get('/:city', (req, res)=> {
-  House
-    .where({city: req.params.city})
-    .find((err, houses)=> {
-      if (err)
+  if (!city && !sortRule) {
+    House.find((err, houses)=> {
+      if (err) {
         return res.sendStatus(500);
-      else {
+      } else {
         res.send(returnValue(houses));
       }
     });
+  } else if (city && !sortRule) {
+    House
+      .where({city: req.query.city})
+      .find((err, houses)=> {
+        if (err)
+          return res.sendStatus(500);
+        else {
+          res.send(returnValue(houses));
+        }
+      });
+  } else if (city && sortRule) {
+    House.where({city: req.query.city})
+      .find((err, houses)=> {
+        if (err) {
+          return res.sendStatus(500);
+        } else {
+          const result = returnValue(houses).sort((a, b)=> a[sortRule] > b[sortRule]);
+          res.send(result);
+        }
+      });
+  }
 });
 
 module.exports = router;

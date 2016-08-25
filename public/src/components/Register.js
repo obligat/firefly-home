@@ -1,3 +1,4 @@
+//eslint-disable-line max-lines
 import React, {Component} from 'react';//eslint-disable-line no-unused-vars
 import {connect} from 'react-redux';
 import {createUser} from  '../actions/register';

@@ -3,20 +3,18 @@
  */
 import request from 'superagent';
 
-export const requestHouseList = ()=> {
+export const requestHouseList = (city, sortRule)=> {
   return (dispatch)=> {
-    request.get('/api/houses')
+    request
+      .get('/api/houses')
+      .query({city})
+      .query({sortRule})
       .end((err, res)=> {
-        dispatch(houseList(res.body));
-      });
-  };
-};
-
-export const requestHouseOfSelectedCity = (city)=> {
-  return (dispatch)=> {
-    request.get(`/api/houses/${city}`)
-      .end((err, res)=> {
-        dispatch(houseOfSelectedCity(res.body));
+        if (err) {
+          throw err;
+        } else {
+          dispatch(houseList(res.body));
+        }
       });
   };
 };
@@ -28,10 +26,3 @@ const houseList = (houses)=> {
   };
 };
 
-const houseOfSelectedCity = (houses)=> {
-  return {
-    type: 'HOUSE_OF_SELECTED_CITY',
-    data: houses,
-
-  };
-};

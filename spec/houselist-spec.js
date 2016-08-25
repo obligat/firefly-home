@@ -25,9 +25,12 @@ function callbackForError(err, res, done, house) {
 }
 
 describe('get', function () {
+  beforeAll(()=> {
+    spyOn(console, 'log');
+  })
   it('should return information of houses', (done)=> {
-
     const expectedCount = 19;
+
     request
       .get('/api/houses')
       .end((err, res)=> {
@@ -35,8 +38,9 @@ describe('get', function () {
       });
   });
 
-  it('should return no information of houses', (done)=> {
+  it('should not return no information of houses', (done)=> {
     let house = null;
+
     request
       .get('/api/houses')
       .end((err, res)=> {
@@ -46,18 +50,53 @@ describe('get', function () {
 
   it('should return the information of specific city', (done)=> {
     const expectedCount = 9;
-
     const city = "北京";
-    request.get(encodeURI(`/api/houses/${city}`))
-      .end((err, res) => {
-        if (err) {
-          done.fail(err);
-        }
-        else {
-          expect(res.body.length).toEqual(expectedCount)
-          done();
 
-        }
+    request
+      .get('/api/houses')
+      .query({city})
+      .end((err, res) => {
+        callback(err, res, done, expectedCount);
+      });
+  });
+
+  it('should not return no information of specific city', (done)=> {
+    let expected = null;
+    const city = "北京";
+
+    request
+      .get('/api/houses')
+      .query({city})
+      .end((err, res)=> {
+        callbackForError(err, res, done, expected);
+      });
+  });
+
+  it('should return sorted house list', (done)=> {
+    const city = "成都";
+    const sortRule = 'price';
+    const expectedCount = 2;
+
+    request
+      .get('/api/houses')
+      .query({city})
+      .query({sortRule})
+      .end((err, res)=> {
+        callback(err, res, done, expectedCount);
+      });
+  });
+
+  it('should not return no information of sorted house', (done)=> {
+    const city = '成都';
+    const sortRule = 'price';
+    const expexted = null;
+
+    request
+      .get('/api/houses')
+      .query({city})
+      .query({sortRule})
+      .end((err, res)=> {
+        callbackForError(err, res, done, expexted);
       });
   });
 });
