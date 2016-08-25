@@ -66,7 +66,7 @@ class OrderPage extends Component {
             </table>
           </div>
           <div style={{float: 'right', marginTop: '30px'}}>
-            <button className="btn btn-success btn-lg">提交订单</button>
+            <button className="btn btn-success">提交订单</button>
           </div>
         </div>
         <Footer/>

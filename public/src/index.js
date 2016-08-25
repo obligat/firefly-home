@@ -14,6 +14,7 @@ import LoginComponent from './components/LoginComponent';
 import HouseResource from './components/houseComponents/HouseResource';
 import HouseDetails from './components/houseDetails/HouseDetails';
 import Homepage from './components/Homepage';
+import OrderPage from './components/OrderPage';
 import UserGuide from './components/UserGuide';
 import {requestHouseList} from './actions/houselist';
 
@@ -35,6 +36,7 @@ render(
         <Route path="/houseDetail/:id" component={HouseDetails}/>
         <Route path="/houseResource/?city=:city" component={HouseResource}/>
         <Route path="/homepage" component={Homepage}/>
+        <Route path="/orderPage" component={OrderPage}/>
         <Route path="/userGuide" components={UserGuide}/>
       </Route>
     </Router>
