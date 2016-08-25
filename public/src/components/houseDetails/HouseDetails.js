@@ -3,13 +3,13 @@
  */
 import React, {Component} from 'react';//eslint-disable-line no-unused-vars
 import {connect} from 'react-redux';
-import {requestHouseDetails} from '../actions/housedetails';
-import Header from './Header';
-import Footer from './Footer';
+import {requestHouseDetails} from '../../actions/housedetails';
+import Header from '../Header';
+import Footer from '../Footer';
 import MonthSelect from './MonthSelect';
 import DaySelect from './DaySelect';
 import {Link} from 'react-router';
-import ReactGallery from './ReactGallery';
+import ReactGallery from '../ReactGallery';
 
 function isEmpty(obj) { //eslint-disable-line complexity
 

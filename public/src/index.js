@@ -12,7 +12,7 @@ import App from './components/App';
 import Register from './components/Register';
 import LoginComponent from './components/LoginComponent';
 import HouseResource from './components/houseComponents/HouseResource';
-import HouseDetails from './components/HouseDetails';
+import HouseDetails from './components/houseDetails/HouseDetails';
 import Homepage from './components/Homepage';
 import UserGuide from './components/UserGuide';
 import {requestHouseList} from './actions/houselist';
