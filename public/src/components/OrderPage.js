@@ -6,13 +6,9 @@ import {requestHouseDetails} from '../actions/housedetails';
 
 class OrderPage extends Component {
 
-    addTodo() {
-        console.log(this.refs.table);
-    }
-
     componentDidMount() {
         let {id}=this.props.params;
-        this.props.requestHouseDetails(1);
+        this.props.requestHouseDetails(id);
     }
 
     render() {
