@@ -16,7 +16,7 @@ class OrderPage extends Component {
     }
 
     render() {
-        const {name, city, address} = this.props.houseDetails;
+        const {name, city, address,price} = this.props.houseDetails;
         return (
             <div>
                 <Header/>
@@ -26,14 +26,18 @@ class OrderPage extends Component {
                             <h3><span className="label label-info">入住信息</span></h3>
                         </div>
                         <div>
-                            <h4><span>房源信息:
+                            <h4><span><strong>房源信息:</strong>
                                 {name},{address},{city}</span></h4>
                         </div>
                         <div>
-                            <h4>房东用户名: zhangsha</h4>
+                            <h4><span><strong>价格:</strong>
+                                ￥{price}元</span></h4>
                         </div>
                         <div>
-                            <h4>入住时间:2016/9/9－2016/9/15</h4>
+                            <h4><strong>房东用户名:</strong> zhangsha</h4>
+                        </div>
+                        <div>
+                            <h4><strong>入住时间:</strong>2016/9/9－2016/9/15</h4>
                         </div>
                     </div>
                     <div className='panel panel-default' style={{marginTop:'40px'}}>
