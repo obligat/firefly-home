@@ -21,9 +21,10 @@ app.use((req, res, next) => {
 
 regRouters(app);
 
-app.listen(3000, ()=> {
-  console.log('Server start at http://localhost:3000'); // eslint-disable-line no-console
-});
-
+if(!module.parent){
+  app.listen(3000, ()=> {
+    console.log('Server start at http://localhost:3000'); // eslint-disable-line no-console
+  });
+}
 export default app;
 

@@ -25,6 +25,9 @@ function callbackForError(err, res, done, house) {
 }
 
 describe('get', function () {
+  beforeAll(()=> {
+    spyOn(console, 'log');
+  })
   it('should return information of houses', (done)=> {
     const expectedCount = 19;
 
