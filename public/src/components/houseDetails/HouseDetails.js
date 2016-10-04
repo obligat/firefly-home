@@ -29,7 +29,7 @@ function isEmpty(obj) { //eslint-disable-line complexity
 }
 
 
-export default class HouseDetails extends Component {
+ class HouseDetails extends Component {
   constructor(props) {
     super(props);
   }
